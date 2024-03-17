@@ -44,9 +44,14 @@ DATASETS_CONFIG = {
         "img": "Salinas_PCA_8.mat",
         "gt": "Salinas_gt.mat",
     },
-        "Salinas_PCA_15": {
+    "Salinas_PCA_15": {
         "download": False,
         "img": "Salinas_PCA_15.mat",
+        "gt": "Salinas_gt.mat",
+    },
+    "Salinas_PCA_30": {
+        "download": False,
+        "img": "Salinas_PCA_30.mat",
         "gt": "Salinas_gt.mat",
     },
     "Salinas_FastICA_8": {
@@ -54,10 +59,53 @@ DATASETS_CONFIG = {
         "img": "Salinas_FastICA_8.mat",
         "gt": "Salinas_gt.mat",
     },    
-        "Salinas_FastICA_15": {
+    "Salinas_FastICA_15": {
         "download": False,
         "img": "Salinas_FastICA_15.mat",
         "gt": "Salinas_gt.mat",
+    },      
+    "Salinas_FastICA_30": {
+        "download": False,
+        "img": "Salinas_FastICA_30.mat",
+        "gt": "Salinas_gt.mat",
+    },   
+    "IndianPines": {
+        "urls": [
+            "http://www.ehu.eus/ccwintco/uploads/6/67/Indian_pines_corrected.mat",
+            "http://www.ehu.eus/ccwintco/uploads/c/c4/Indian_pines_gt.mat",
+        ],
+        "img": "Indian_pines_corrected.mat",
+        "gt": "Indian_pines_gt.mat",
+    },
+    "IndianPines_PCA_8": {
+        "download": False,
+        "img": "Indian Pines_PCA_8.mat",
+        "gt": "Indian_pines_gt.mat",
+    },
+    "IndianPines_PCA_15": {
+        "download": False,
+        "img": "Indian Pines_PCA_15.mat",
+        "gt": "Indian_pines_gt.mat",
+    },
+    "IndianPines_PCA_30": {
+        "download": False,
+        "img": "Indian Pines_PCA_30.mat",
+        "gt": "Indian_pines_gt.mat",
+    },
+    "IndianPines_FastICA_8": {
+        "download": False,
+        "img": "Indian Pines_FastICA_8.mat",
+        "gt": "Indian_pines_gt.mat",
+    },    
+    "IndianPines_FastICA_15": {
+        "download": False,
+        "img": "Indian Pines_FastICA_15.mat",
+        "gt": "Indian_pines_gt.mat",
+    },      
+    "IndianPines_FastICA_30": {
+        "download": False,
+        "img": "Indian Pines_FastICA_30.mat",
+        "gt": "Indian_pines_gt.mat",
     },   
     "PaviaU": {
         "urls": [
@@ -74,14 +122,6 @@ DATASETS_CONFIG = {
         ],
         "img": "KSC.mat",
         "gt": "KSC_gt.mat",
-    },
-    "IndianPines": {
-        "urls": [
-            "http://www.ehu.eus/ccwintco/uploads/6/67/Indian_pines_corrected.mat",
-            "http://www.ehu.eus/ccwintco/uploads/c/c4/Indian_pines_gt.mat",
-        ],
-        "img": "Indian_pines_corrected.mat",
-        "gt": "Indian_pines_gt.mat",
     },
     "Botswana": {
         "urls": [
@@ -239,14 +279,9 @@ def get_dataset(dataset_name, target_folder="./", datasets=DATASETS_CONFIG):
             print(f'Using {dataset_name} dataset with shape {img.shape}')
             rgb_bands = None 
 
-    elif dataset_name == "IndianPines":
-        # Load the image
-        img = open_file(folder + "Indian_pines_corrected.mat")
-        img = img["indian_pines_corrected"]
+    elif "IndianPines" in dataset_name:
 
-        rgb_bands = (43, 21, 11)  # AVIRIS sensor
-
-        gt = open_file(folder + "Indian_pines_gt.mat")["indian_pines_gt"]
+        gt = open_file("Datasets/IndianPines/Indian_pines_gt.mat")["indian_pines_gt"]
         label_values = [
             "Undefined",
             "Alfalfa",
@@ -266,8 +301,21 @@ def get_dataset(dataset_name, target_folder="./", datasets=DATASETS_CONFIG):
             "Buildings-Grass-Trees-Drives",
             "Stone-Steel-Towers",
         ]
-
         ignored_labels = [0]
+
+        ds_suff = re.split('(IndianPines)', dataset_name)[2]
+
+        if ds_suff == '': # Raw dataset
+            img = open_file(folder + "Indian_pines_corrected.mat")["indian_pines_corrected"]
+            print(f'Using {dataset_name} dataset with shape {img.shape}')
+            rgb_bands = (43, 21, 11)  # AVIRIS sensor
+    
+        else:  # Dataset after Dimensionality Reduction
+            img = open_file(f"Datasets/IndianPines/{dataset_name}.mat")["data"]
+            print(f'Using {dataset_name} dataset with shape {img.shape}')
+            rgb_bands = None 
+
+
 
     elif dataset_name == "Botswana":
         # Load the image
