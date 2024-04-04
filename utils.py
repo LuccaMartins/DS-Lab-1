@@ -387,6 +387,28 @@ def metrics(prediction, target, ignored_labels=[], n_classes=None):
     kappa = (pa - pe) / (1 - pe)
     results["Kappa"] = kappa
 
+    
+    print('COMPUTING IOU...', prediction.shape, target.shape, prediction, target)
+
+    IOUscores = np.zeros(len(cm))
+    # Compute IOU
+    for class_label in range(0, n_classes):
+        pred_class_mask = (prediction == class_label)
+        true_class_mask = (target == class_label)
+
+         # Compute intersection and union
+        intersection = np.logical_and(pred_class_mask, true_class_mask).sum()
+        union = np.logical_or(pred_class_mask, true_class_mask).sum()
+
+         # Handle special case of zero union
+        if union == 0:
+            # iou = 1 if intersection == 0 else 0
+        else:
+            iou = intersection / union
+        # print("iou ", iou)
+        IOUscores[class_label] = iou
+    results["IOU"] = IOUscores
+
     return results
 
 

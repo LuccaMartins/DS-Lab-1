@@ -240,57 +240,117 @@ class Baseline(nn.Module):
         return x
 
 
-class HuEtAl(nn.Module):
+
+class MouEtAl(nn.Module):
     """
-    Deep Convolutional Neural Networks for Hyperspectral Image Classification
-    Wei Hu, Yangyu Huang, Li Wei, Fan Zhang and Hengchao Li
-    Journal of Sensors, Volume 2015 (2015)
-    https://www.hindawi.com/journals/js/2015/258619/
+    Deep recurrent neural networks for hyperspectral image classification
+    Lichao Mou, Pedram Ghamisi, Xiao Xang Zhu
+    https://ieeexplore.ieee.org/document/7914752/
     """
 
     @staticmethod
     def weight_init(m):
-        # [All the trainable parameters in our CNN should be initialized to
-        # be a random value between −0.05 and 0.05.]
-        if isinstance(m, nn.Linear) or isinstance(m, nn.Conv1d):
-            init.uniform_(m.weight, -0.05, 0.05)
-            init.zeros_(m.bias)
+        # All weight matrices in our RNN and bias vectors are initialized with a uniform distribution, and the values of these weight matrices and bias vectors are initialized in the range [−0.1,0.1]
+        if isinstance(m, (nn.Linear, nn.GRU)):
+            init.uniform_(m.weight.data, -0.1, 0.1)
+            init.uniform_(m.bias.data, -0.1, 0.1)
 
-    def _get_final_flattened_size(self):
-        with torch.no_grad():
-            x = torch.zeros(1, 1, self.input_channels)
-            x = self.pool(self.conv(x))
-        return x.numel()
-
-    def __init__(self, input_channels, n_classes, kernel_size=None, pool_size=None):
-        super(HuEtAl, self).__init__()
-        if kernel_size is None:
-            # [In our experiments, k1 is better to be [ceil](n1/9)]
-            kernel_size = math.ceil(input_channels / 9)
-        if pool_size is None:
-            # The authors recommand that k2's value is chosen so that the pooled features have 30~40 values
-            # ceil(kernel_size/5) gives the same values as in the paper so let's assume it's okay
-            pool_size = math.ceil(kernel_size / 5)
+    def a__init__(self, input_channels, n_classes):
+        super(MouEtAl, self).__init__()
+        # d_out = 64
+        # depth = 1
+        self.n_classes = n_classes
         self.input_channels = input_channels
 
-        # [The first hidden convolution layer C1 filters the n1 x 1 input data with 20 kernels of size k1 x 1]
-        self.conv = nn.Conv1d(1, 20, kernel_size)
-        self.pool = nn.MaxPool1d(pool_size)
-        self.features_size = self._get_final_flattened_size()
-        # [n4 is set to be 100]
-        self.fc1 = nn.Linear(self.features_size, 100)
-        self.fc2 = nn.Linear(100, n_classes)
-        self.apply(self.weight_init)
+        self.recurrent = nn.GRU(input_channels, 64, 1)
+        self.feat_size = 64 * input_channels
+        self.bn = nn.BatchNorm1d(self.feat_size)
+        self.tanh = nn.Tanh()
+        self.fc = nn.Linear(self.feat_size, n_classes)
+
+    def aforward(self, x):
+        print('=>', x.shape)
+        x = torch.transpose(x, 0, 1).contiguous()
+        print('before recurrent =>', x.shape)
+
+        batch_size = x.size(1)
+        print('batch size -', batch_size)
+        sequence_length = x.size(2) 
+        print('sequence_length -', sequence_length)
+
+        x = x.view(batch_size, sequence_length*x.size(3)*x.size(4), 1)  # (batch_size, 1, sequence_length, input_channels * height * width)
+        # x = x.view(batch_size, 1, self.feat_size)  # (batch_size, 1, sequence_length, input_channels * height * width)
+        # x = x.view(batch_size, x.size(3)*x.size(4), sequence_length)
+        print('bf rec ', x.shape)
+        x = self.recurrent(x)[0]
+        print('af rec ', x.shape)
+        x = x.permute(1, 0, 2).contiguous()
+        print('af permute ', x.shape)
+        x = x.view(x.size(0), -1)
+        print('af view ', x.shape)
+        x = self.bn(x)
+        x = self.tanh(x)
+        x = self.fc(x)
+        return x    
+    
+    def b__init__(self, input_channels, n_classes):
+        # The proposed network model uses a single recurrent layer that adopts our modified GRUs of size 64 with sigmoid gate activation and PRetanh activation functions for hidden representations
+        super(MouEtAl, self).__init__()
+        self.input_channels = input_channels
+        self.gru = nn.GRU(1, 64, 1, bidirectional=False)  # TODO: try to change this ?
+        self.gru_bn = nn.BatchNorm1d(64 * input_channels)
+        self.tanh = nn.Tanh()
+        self.fc = nn.Linear(64 * input_channels, n_classes)
+
+
+    def __init__(self, input_channels, n_classes):
+        # The proposed network model uses a single recurrent layer that adopts our modified GRUs of size 64 with sigmoid gate activation and PRetanh activation functions for hidden representations
+        super(MouEtAl, self).__init__()
+        self.input_channels = input_channels
+        self.n_classes = n_classes
+        self.features_size = 64 * input_channels
+        # self.gru = nn.GRU(1, 64, 1, bidirectional=False)  # TODO: try to change this ?
+        self.gru = nn.GRU(1, 64, 1)
+        self.gru_bn = nn.BatchNorm1d(self.features_size)
+        self.tanh = nn.Tanh()
+        self.fc = nn.Linear(self.features_size, n_classes)
 
     def forward(self, x):
-        # [In our design architecture, we choose the hyperbolic tangent function tanh(u)]
-        x = x.squeeze(dim=-1).squeeze(dim=-1)
-        x = x.unsqueeze(1)
-        x = self.conv(x)
-        x = torch.tanh(self.pool(x))
+        print('foward', x.shape)
+        x = x.squeeze().view(392, 100, 1)
+        
+        print('i_gru -> ', x.shape)
+        x = self.gru(x)[0]
+        print('o_gru -> ', x.shape)
+        # x is in C, N, 64, we permute back
+        # x = x.permute().contiguous()
         x = x.view(-1, self.features_size)
-        x = torch.tanh(self.fc1(x))
-        x = self.fc2(x)
+        print('i_bn -> ', x.shape)
+        x = self.gru_bn(x)
+        print('o_bn -> ', x.shape)
+        x = self.tanh(x)
+        print('i_fc -> ', x.shape)
+        x = self.fc(x)
+        print('o_fc ->', x.shape)
+        print('return ->', x.shape)
+
+        return x
+    
+    def old_forward(self, x):
+        print('->', x.shape)
+        x = x.squeeze()
+        print('-> squeeze', x.shape)
+        x = x.unsqueeze(0)
+        print('-> unsqueeze', x.shape)
+        # x is in 1, N, C but we expect C, N, 1 for GRU layer
+        x = x.permute(2, 1, 0)
+        x = self.gru(x)[0]
+        # x is in C, N, 64, we permute back
+        x = x.permute(1, 2, 0).contiguous()
+        x = x.view(x.size(0), -1)
+        x = self.gru_bn(x)
+        x = self.tanh(x)
+        x = self.fc(x)
         return x
 
 
@@ -371,6 +431,7 @@ class HamidaEtAl(nn.Module):
         return t * c * w * h
 
     def forward(self, x):
+        # print('-->', x.shape)
         x = F.relu(self.conv1(x))
         x = self.pool1(x)
         x = F.relu(self.conv2(x))
@@ -381,6 +442,72 @@ class HamidaEtAl(nn.Module):
         # x = self.dropout(x)
         x = self.fc(x)
         return x
+
+
+class LiEtAl(nn.Module):
+    """
+    SPECTRAL–SPATIAL CLASSIFICATION OF HYPERSPECTRAL IMAGERY
+            WITH 3D CONVOLUTIONAL NEURAL NETWORK
+    Ying Li, Haokui Zhang and Qiang Shen
+    MDPI Remote Sensing, 2017
+    http://www.mdpi.com/2072-4292/9/1/67
+    """
+
+    @staticmethod
+    def weight_init(m):
+        if isinstance(m, nn.Linear) or isinstance(m, nn.Conv3d):
+            init.xavier_uniform_(m.weight.data)
+            init.constant_(m.bias.data, 0)
+
+    def __init__(self, input_channels, n_classes, n_planes=2, patch_size=5):
+        super(LiEtAl, self).__init__()
+        self.input_channels = input_channels
+        self.n_planes = n_planes
+        self.patch_size = patch_size
+
+        # The proposed 3D-CNN model has two 3D convolution layers (C1 and C2)
+        # and a fully-connected layer (F1)
+        # we fix the spatial size of the 3D convolution kernels to 3 × 3
+        # while only slightly varying the spectral depth of the kernels
+        # for the Pavia University and Indian Pines scenes, those in C1 and C2
+        # were set to seven and three, respectively
+        self.conv1 = nn.Conv3d(1, n_planes, (7, 3, 3), padding=(1, 0, 0))
+        # the number of kernels in the second convolution layer is set to be
+        # twice as many as that in the first convolution layer
+        self.conv2 = nn.Conv3d(n_planes, 2 * n_planes, (3, 3, 3), padding=(1, 0, 0))
+        # self.dropout = nn.Dropout(p=0.5)
+        self.features_size = self._get_final_flattened_size()
+
+        self.fc = nn.Linear(self.features_size, n_classes)
+
+        self.apply(self.weight_init)
+
+    def _get_final_flattened_size(self):
+        with torch.no_grad():
+            x = torch.zeros(
+                (1, 1, self.input_channels, self.patch_size, self.patch_size)
+            )
+            x = self.conv1(x)
+            x = self.conv2(x)
+            _, t, c, w, h = x.size()
+        return t * c * w * h
+
+    def forward(self, x):
+        print('->', x.shape)
+        x = F.relu(self.conv1(x))
+        x = F.relu(self.conv2(x))
+        x = x.view(-1, self.features_size)
+        # x = self.dropout(x)
+        x = self.fc(x)
+        return x
+
+
+
+
+
+
+
+
 
 
 class LeeEtAl(nn.Module):
@@ -529,60 +656,58 @@ class ChenEtAl(nn.Module):
         return x
 
 
-class LiEtAl(nn.Module):
+
+class HuEtAl(nn.Module):
     """
-    SPECTRAL–SPATIAL CLASSIFICATION OF HYPERSPECTRAL IMAGERY
-            WITH 3D CONVOLUTIONAL NEURAL NETWORK
-    Ying Li, Haokui Zhang and Qiang Shen
-    MDPI Remote Sensing, 2017
-    http://www.mdpi.com/2072-4292/9/1/67
+    Deep Convolutional Neural Networks for Hyperspectral Image Classification
+    Wei Hu, Yangyu Huang, Li Wei, Fan Zhang and Hengchao Li
+    Journal of Sensors, Volume 2015 (2015)
+    https://www.hindawi.com/journals/js/2015/258619/
     """
 
     @staticmethod
     def weight_init(m):
-        if isinstance(m, nn.Linear) or isinstance(m, nn.Conv3d):
-            init.xavier_uniform_(m.weight.data)
-            init.constant_(m.bias.data, 0)
-
-    def __init__(self, input_channels, n_classes, n_planes=2, patch_size=5):
-        super(LiEtAl, self).__init__()
-        self.input_channels = input_channels
-        self.n_planes = n_planes
-        self.patch_size = patch_size
-
-        # The proposed 3D-CNN model has two 3D convolution layers (C1 and C2)
-        # and a fully-connected layer (F1)
-        # we fix the spatial size of the 3D convolution kernels to 3 × 3
-        # while only slightly varying the spectral depth of the kernels
-        # for the Pavia University and Indian Pines scenes, those in C1 and C2
-        # were set to seven and three, respectively
-        self.conv1 = nn.Conv3d(1, n_planes, (7, 3, 3), padding=(1, 0, 0))
-        # the number of kernels in the second convolution layer is set to be
-        # twice as many as that in the first convolution layer
-        self.conv2 = nn.Conv3d(n_planes, 2 * n_planes, (3, 3, 3), padding=(1, 0, 0))
-        # self.dropout = nn.Dropout(p=0.5)
-        self.features_size = self._get_final_flattened_size()
-
-        self.fc = nn.Linear(self.features_size, n_classes)
-
-        self.apply(self.weight_init)
+        # [All the trainable parameters in our CNN should be initialized to
+        # be a random value between −0.05 and 0.05.]
+        if isinstance(m, nn.Linear) or isinstance(m, nn.Conv1d):
+            init.uniform_(m.weight, -0.05, 0.05)
+            init.zeros_(m.bias)
 
     def _get_final_flattened_size(self):
         with torch.no_grad():
-            x = torch.zeros(
-                (1, 1, self.input_channels, self.patch_size, self.patch_size)
-            )
-            x = self.conv1(x)
-            x = self.conv2(x)
-            _, t, c, w, h = x.size()
-        return t * c * w * h
+            x = torch.zeros(1, 1, self.input_channels)
+            x = self.pool(self.conv(x))
+        return x.numel()
+
+    def __init__(self, input_channels, n_classes, kernel_size=None, pool_size=None):
+        super(HuEtAl, self).__init__()
+        if kernel_size is None:
+            # [In our experiments, k1 is better to be [ceil](n1/9)]
+            kernel_size = math.ceil(input_channels / 9)
+        if pool_size is None:
+            # The authors recommand that k2's value is chosen so that the pooled features have 30~40 values
+            # ceil(kernel_size/5) gives the same values as in the paper so let's assume it's okay
+            pool_size = math.ceil(kernel_size / 5)
+        self.input_channels = input_channels
+
+        # [The first hidden convolution layer C1 filters the n1 x 1 input data with 20 kernels of size k1 x 1]
+        self.conv = nn.Conv1d(1, 20, kernel_size)
+        self.pool = nn.MaxPool1d(pool_size)
+        self.features_size = self._get_final_flattened_size()
+        # [n4 is set to be 100]
+        self.fc1 = nn.Linear(self.features_size, 100)
+        self.fc2 = nn.Linear(100, n_classes)
+        self.apply(self.weight_init)
 
     def forward(self, x):
-        x = F.relu(self.conv1(x))
-        x = F.relu(self.conv2(x))
+        # [In our design architecture, we choose the hyperbolic tangent function tanh(u)]
+        x = x.squeeze(dim=-1).squeeze(dim=-1)
+        x = x.unsqueeze(1)
+        x = self.conv(x)
+        x = torch.tanh(self.pool(x))
         x = x.view(-1, self.features_size)
-        # x = self.dropout(x)
-        x = self.fc(x)
+        x = torch.tanh(self.fc1(x))
+        x = self.fc2(x)
         return x
 
 
@@ -957,42 +1082,6 @@ class BoulchEtAl(nn.Module):
         return x_classif, x
 
 
-class MouEtAl(nn.Module):
-    """
-    Deep recurrent neural networks for hyperspectral image classification
-    Lichao Mou, Pedram Ghamisi, Xiao Xang Zhu
-    https://ieeexplore.ieee.org/document/7914752/
-    """
-
-    @staticmethod
-    def weight_init(m):
-        # All weight matrices in our RNN and bias vectors are initialized with a uniform distribution, and the values of these weight matrices and bias vectors are initialized in the range [−0.1,0.1]
-        if isinstance(m, (nn.Linear, nn.GRU)):
-            init.uniform_(m.weight.data, -0.1, 0.1)
-            init.uniform_(m.bias.data, -0.1, 0.1)
-
-    def __init__(self, input_channels, n_classes):
-        # The proposed network model uses a single recurrent layer that adopts our modified GRUs of size 64 with sigmoid gate activation and PRetanh activation functions for hidden representations
-        super(MouEtAl, self).__init__()
-        self.input_channels = input_channels
-        self.gru = nn.GRU(1, 64, 1, bidirectional=False)  # TODO: try to change this ?
-        self.gru_bn = nn.BatchNorm1d(64 * input_channels)
-        self.tanh = nn.Tanh()
-        self.fc = nn.Linear(64 * input_channels, n_classes)
-
-    def forward(self, x):
-        x = x.squeeze()
-        x = x.unsqueeze(0)
-        # x is in 1, N, C but we expect C, N, 1 for GRU layer
-        x = x.permute(2, 1, 0)
-        x = self.gru(x)[0]
-        # x is in C, N, 64, we permute back
-        x = x.permute(1, 2, 0).contiguous()
-        x = x.view(x.size(0), -1)
-        x = self.gru_bn(x)
-        x = self.tanh(x)
-        x = self.fc(x)
-        return x
 
 
 def train(
@@ -1049,10 +1138,12 @@ def train(
         ):
             # Load the data into the GPU if required
             data, target = data.to(device), target.to(device)
-
+            # print('data', data.shape)
             optimizer.zero_grad()
             if supervision == "full":
                 output = net(data)
+                # print('output', output.shape)
+                # print('target', target.shape)
                 loss = criterion(output, target)
             elif supervision == "semi":
                 outs = net(data)

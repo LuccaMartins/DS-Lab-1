@@ -9,6 +9,8 @@ state-of-the-art CNNs on various public hyperspectral datasets.
 This code is released under the GPLv3 license for non-commercial and research
 purposes only.
 For commercial use, please contact the authors.
+
+
 """
 # Python 2/3 compatiblity
 from __future__ import print_function
@@ -396,7 +398,8 @@ for run in range(N_RUNS):
         with torch.no_grad():
             for input, _ in train_loader:
                 break
-            summary(model.to(hyperparams["device"]), input.size()[1:])
+            print('->input size', input.size())
+            # summary(model.to(hyperparams["device"]), input.size()[1:])
             # We would like to use device=hyperparams['device'] altough we have
             # to wait for torchsummary to be fixed first.
 
@@ -404,6 +407,7 @@ for run in range(N_RUNS):
             model.load_state_dict(torch.load(CHECKPOINT))
 
         try:
+            print("Call training...")
             train(
                 model,
                 optimizer,
@@ -449,15 +453,17 @@ for run in range(N_RUNS):
 if N_RUNS > 1:
     show_results(results, viz, label_values=LABEL_VALUES, agregated=True)
 
-print(results)
-print(type(results[0]["Confusion matrix"]))
-print(results[0]["Confusion matrix"])
-print(type(results[0]["F1 scores"]))
-print(results[0]["F1 scores"])
+# print(results)
+# print(type(results[0]["Confusion matrix"]))
+# print(results[0]["Confusion matrix"])
+# print(type(results[0]["F1 scores"]))
+# print(results[0]["F1 scores"])
 
 
 df_results = pd.DataFrame(data=results)
 df_results['Confusion matrix'] = df_results['Confusion matrix'].apply(lambda x: pickle.dumps(x))
 df_results['F1 scores'] = df_results['F1 scores'].apply(lambda x: pickle.dumps(x))
+df_results['IOU'] = df_results['IOU'].apply(lambda x: pickle.dumps(x))
+
 
 df_results.to_csv(f'Results/{DATASET}_{MODEL}_{EPOCH}epochs.csv')
