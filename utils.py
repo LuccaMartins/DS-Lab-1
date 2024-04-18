@@ -388,7 +388,7 @@ def metrics(prediction, target, ignored_labels=[], n_classes=None):
     results["Kappa"] = kappa
 
     
-    print('COMPUTING IOU...', prediction.shape, target.shape, prediction, target)
+    # print('COMPUTING IOU...', prediction.shape, target.shape, prediction, target)
 
     IOUscores = np.zeros(len(cm))
     # Compute IOU
@@ -402,7 +402,7 @@ def metrics(prediction, target, ignored_labels=[], n_classes=None):
 
          # Handle special case of zero union
         if union == 0:
-            # iou = 1 if intersection == 0 else 0
+            iou = 1 if intersection == 0 else 0
         else:
             iou = intersection / union
         # print("iou ", iou)

@@ -168,19 +168,28 @@ def get_model(name, **kwargs):
             nn.CrossEntropyLoss(weight=kwargs["weights"]),
             lambda rec, data: F.mse_loss(rec, data.squeeze()),
         )
-    elif name == "mou":
+    elif name == "original_mou":
         kwargs.setdefault("patch_size", 1)
         center_pixel = True
         kwargs.setdefault("epoch", 100)
+        model = Original_MouEtAl(n_bands, n_classes)
+        # For Adadelta, we need to load the model on GPU before creating the optimizer
         # "The RNN was trained with the Adadelta algorithm [...] We made use of a
         # fairly  high  learning  rate  of  1.0  instead  of  the  relatively  low
         # default of  0.002 to  train the  network"
         lr = kwargs.setdefault("lr", 1.0)
-        model = MouEtAl(n_bands, n_classes)
-        # For Adadelta, we need to load the model on GPU before creating the optimizer
         model = model.to(device)
         optimizer = optim.Adadelta(model.parameters(), lr=lr)
         criterion = nn.CrossEntropyLoss(weight=kwargs["weights"])
+    elif name == "mou":
+        kwargs.setdefault("patch_size", 1)
+        kwargs.setdefault("epoch", 100)
+        center_pixel = True
+        lr = kwargs.setdefault("lr", 0.001)
+
+        model = MouEtAl(n_bands, n_classes, kwargs['patch_size'])
+        optimizer = torch.optim.Adam(model.parameters(), lr=lr)
+        criterion = nn.CrossEntropyLoss(weight=kwargs['weights'])
     else:
         raise KeyError("{} model is unknown.".format(name))
 
@@ -240,8 +249,52 @@ class Baseline(nn.Module):
         return x
 
 
-
 class MouEtAl(nn.Module):
+    def __init__(self, input_size, num_classes, patch_size):
+        super(MouEtAl, self).__init__()
+        self.num_layers = 1
+        self.hidden_size = 64
+        self.input_size = input_size
+        self.num_classes = num_classes
+        self.patch_size = patch_size
+        
+        self.gru = nn.GRU(input_size, self.hidden_size, self.num_layers, batch_first=True) # x: (batch_size, seq, input_size)
+
+        self.gru_bn = nn.BatchNorm1d(self.patch_size*self.patch_size)
+        self.tanh = nn.Tanh()
+        self.fc = nn.Linear(self.hidden_size, num_classes)
+        # self.fc = nn.Linear(self.features_size, n_classes)
+
+    def forward(self, x):
+        # print('->', x.shape)
+        # set initial hidden states
+        h0 = torch.zeros(self.num_layers, x.size(0), self.hidden_size).to('cuda')
+
+        x = x.reshape(-1, self.patch_size*self.patch_size, x.size(2)).to('cuda')
+        # print('->', x.shape)
+
+        x, _ = self.gru(x, h0)
+        # x, _ = self.rnn(x, h0)      # x = (batch_size, seq_length, hidden_size)
+        # print('rnn', x.shape)
+
+        x = self.gru_bn(x)
+        # print('bn', x.shape)
+        x = self.tanh(x)
+        # print('tanh', x.shape)
+        # Decode the hidden state of the last time step
+        x = x[:, -1, :]
+        # x: (n, 49?)
+        # print('before fc', x.shape)
+        x = self.fc(x)
+        # print('fc', x.shape)
+
+        # x: (n, 17)
+        # print('x', x.shape)
+        return x
+
+
+
+class Original_MouEtAl(nn.Module): #doesn't work.
     """
     Deep recurrent neural networks for hyperspectral image classification
     Lichao Mou, Pedram Ghamisi, Xiao Xang Zhu
@@ -255,93 +308,18 @@ class MouEtAl(nn.Module):
             init.uniform_(m.weight.data, -0.1, 0.1)
             init.uniform_(m.bias.data, -0.1, 0.1)
 
-    def a__init__(self, input_channels, n_classes):
-        super(MouEtAl, self).__init__()
-        # d_out = 64
-        # depth = 1
-        self.n_classes = n_classes
-        self.input_channels = input_channels
-
-        self.recurrent = nn.GRU(input_channels, 64, 1)
-        self.feat_size = 64 * input_channels
-        self.bn = nn.BatchNorm1d(self.feat_size)
-        self.tanh = nn.Tanh()
-        self.fc = nn.Linear(self.feat_size, n_classes)
-
-    def aforward(self, x):
-        print('=>', x.shape)
-        x = torch.transpose(x, 0, 1).contiguous()
-        print('before recurrent =>', x.shape)
-
-        batch_size = x.size(1)
-        print('batch size -', batch_size)
-        sequence_length = x.size(2) 
-        print('sequence_length -', sequence_length)
-
-        x = x.view(batch_size, sequence_length*x.size(3)*x.size(4), 1)  # (batch_size, 1, sequence_length, input_channels * height * width)
-        # x = x.view(batch_size, 1, self.feat_size)  # (batch_size, 1, sequence_length, input_channels * height * width)
-        # x = x.view(batch_size, x.size(3)*x.size(4), sequence_length)
-        print('bf rec ', x.shape)
-        x = self.recurrent(x)[0]
-        print('af rec ', x.shape)
-        x = x.permute(1, 0, 2).contiguous()
-        print('af permute ', x.shape)
-        x = x.view(x.size(0), -1)
-        print('af view ', x.shape)
-        x = self.bn(x)
-        x = self.tanh(x)
-        x = self.fc(x)
-        return x    
-    
-    def b__init__(self, input_channels, n_classes):
+    def __init__(self, input_channels, n_classes):
         # The proposed network model uses a single recurrent layer that adopts our modified GRUs of size 64 with sigmoid gate activation and PRetanh activation functions for hidden representations
-        super(MouEtAl, self).__init__()
+        super(Original_MouEtAl, self).__init__()
         self.input_channels = input_channels
         self.gru = nn.GRU(1, 64, 1, bidirectional=False)  # TODO: try to change this ?
         self.gru_bn = nn.BatchNorm1d(64 * input_channels)
         self.tanh = nn.Tanh()
         self.fc = nn.Linear(64 * input_channels, n_classes)
 
-
-    def __init__(self, input_channels, n_classes):
-        # The proposed network model uses a single recurrent layer that adopts our modified GRUs of size 64 with sigmoid gate activation and PRetanh activation functions for hidden representations
-        super(MouEtAl, self).__init__()
-        self.input_channels = input_channels
-        self.n_classes = n_classes
-        self.features_size = 64 * input_channels
-        # self.gru = nn.GRU(1, 64, 1, bidirectional=False)  # TODO: try to change this ?
-        self.gru = nn.GRU(1, 64, 1)
-        self.gru_bn = nn.BatchNorm1d(self.features_size)
-        self.tanh = nn.Tanh()
-        self.fc = nn.Linear(self.features_size, n_classes)
-
     def forward(self, x):
-        print('foward', x.shape)
-        x = x.squeeze().view(392, 100, 1)
-        
-        print('i_gru -> ', x.shape)
-        x = self.gru(x)[0]
-        print('o_gru -> ', x.shape)
-        # x is in C, N, 64, we permute back
-        # x = x.permute().contiguous()
-        x = x.view(-1, self.features_size)
-        print('i_bn -> ', x.shape)
-        x = self.gru_bn(x)
-        print('o_bn -> ', x.shape)
-        x = self.tanh(x)
-        print('i_fc -> ', x.shape)
-        x = self.fc(x)
-        print('o_fc ->', x.shape)
-        print('return ->', x.shape)
-
-        return x
-    
-    def old_forward(self, x):
-        print('->', x.shape)
         x = x.squeeze()
-        print('-> squeeze', x.shape)
         x = x.unsqueeze(0)
-        print('-> unsqueeze', x.shape)
         # x is in 1, N, C but we expect C, N, 1 for GRU layer
         x = x.permute(2, 1, 0)
         x = self.gru(x)[0]
@@ -352,7 +330,6 @@ class MouEtAl(nn.Module):
         x = self.tanh(x)
         x = self.fc(x)
         return x
-
 
 class HamidaEtAl(nn.Module):
     """
@@ -493,21 +470,13 @@ class LiEtAl(nn.Module):
         return t * c * w * h
 
     def forward(self, x):
-        print('->', x.shape)
+        # print('->', x.shape)
         x = F.relu(self.conv1(x))
         x = F.relu(self.conv2(x))
         x = x.view(-1, self.features_size)
         # x = self.dropout(x)
         x = self.fc(x)
         return x
-
-
-
-
-
-
-
-
 
 
 class LeeEtAl(nn.Module):
@@ -1128,6 +1097,7 @@ def train(
     val_accuracies = []
 
     for e in tqdm(range(1, epoch + 1), desc="Training the network"):
+        # print('\nepoch... ', e)
         # Set the network to training mode
         net.train()
         avg_loss = 0.0
@@ -1135,7 +1105,8 @@ def train(
         # Run the training loop for one epoch
         for batch_idx, (data, target) in tqdm(
             enumerate(data_loader), total=len(data_loader)
-        ):
+        ):  
+            # print(batch_idx, len(data), len(data_loader))
             # Load the data into the GPU if required
             data, target = data.to(device), target.to(device)
             # print('data', data.shape)
@@ -1163,6 +1134,7 @@ def train(
             mean_losses[iter_] = np.mean(losses[max(0, iter_ - 100) : iter_ + 1])
 
             if display_iter and iter_ % display_iter == 0:
+                # print('\niter_', iter_)
                 string = "Train (epoch {}/{}) [{}/{} ({:.0f}%)]\tLoss: {:.6f}"
                 string = string.format(
                     e,

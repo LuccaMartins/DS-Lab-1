@@ -5,7 +5,7 @@ To use, first initialize Visdom Server:
 python -m visdom.server
 
 Then run experiments with:
-python main.py --model hamida --dataset Salinas_PCA_8 --training_sample 0.5 --patch_size 7 --epoch 50 --cuda
+python main.py --model mou --dataset Salinas_PCA_8 --training_sample 0.5 --patch_size 7 --epoch 30 --cuda 0
 
 
 

@@ -399,7 +399,7 @@ for run in range(N_RUNS):
             for input, _ in train_loader:
                 break
             print('->input size', input.size())
-            # summary(model.to(hyperparams["device"]), input.size()[1:])
+            summary(model.to(hyperparams["device"]), input.size()[1:])
             # We would like to use device=hyperparams['device'] altough we have
             # to wait for torchsummary to be fixed first.
 
@@ -453,7 +453,7 @@ for run in range(N_RUNS):
 if N_RUNS > 1:
     show_results(results, viz, label_values=LABEL_VALUES, agregated=True)
 
-# print(results)
+print(results)
 # print(type(results[0]["Confusion matrix"]))
 # print(results[0]["Confusion matrix"])
 # print(type(results[0]["F1 scores"]))
@@ -461,9 +461,10 @@ if N_RUNS > 1:
 
 
 df_results = pd.DataFrame(data=results)
+
 df_results['Confusion matrix'] = df_results['Confusion matrix'].apply(lambda x: pickle.dumps(x))
 df_results['F1 scores'] = df_results['F1 scores'].apply(lambda x: pickle.dumps(x))
 df_results['IOU'] = df_results['IOU'].apply(lambda x: pickle.dumps(x))
 
 
-df_results.to_csv(f'Results/{DATASET}_{MODEL}_{EPOCH}epochs.csv')
+df_results.to_csv(f'Results/{MODEL}/{DATASET}_{MODEL}_{EPOCH}epochs.csv')
