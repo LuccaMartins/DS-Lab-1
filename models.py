@@ -55,23 +55,6 @@ def get_model(name, **kwargs):
         optimizer = optim.SGD(model.parameters(), lr=lr, weight_decay=0.0005)
         kwargs.setdefault("batch_size", 100)
         criterion = nn.CrossEntropyLoss(weight=kwargs["weights"])
-    elif name == "lee":
-        kwargs.setdefault("epoch", 200)
-        patch_size = kwargs.setdefault("patch_size", 5)
-        center_pixel = False
-        model = LeeEtAl(n_bands, n_classes)
-        lr = kwargs.setdefault("learning_rate", 0.001)
-        optimizer = optim.Adam(model.parameters(), lr=lr)
-        criterion = nn.CrossEntropyLoss(weight=kwargs["weights"])
-    elif name == "chen":
-        patch_size = kwargs.setdefault("patch_size", 27)
-        center_pixel = True
-        model = ChenEtAl(n_bands, n_classes, patch_size=patch_size)
-        lr = kwargs.setdefault("learning_rate", 0.003)
-        optimizer = optim.SGD(model.parameters(), lr=lr)
-        criterion = nn.CrossEntropyLoss(weight=kwargs["weights"])
-        kwargs.setdefault("epoch", 400)
-        kwargs.setdefault("batch_size", 100)
     elif name == "li":
         patch_size = kwargs.setdefault("patch_size", 5)
         center_pixel = True
@@ -83,91 +66,6 @@ def get_model(name, **kwargs):
         epoch = kwargs.setdefault("epoch", 200)
         criterion = nn.CrossEntropyLoss(weight=kwargs["weights"])
         # kwargs.setdefault('scheduler', optim.lr_scheduler.MultiStepLR(optimizer, milestones=[epoch // 2, (5 * epoch) // 6], gamma=0.1))
-    elif name == "hu":
-        kwargs.setdefault("patch_size", 1)
-        center_pixel = True
-        model = HuEtAl(n_bands, n_classes)
-        # From what I infer from the paper (Eq.7 and Algorithm 1), it is standard SGD with lr = 0.01
-        lr = kwargs.setdefault("learning_rate", 0.01)
-        optimizer = optim.SGD(model.parameters(), lr=lr)
-        criterion = nn.CrossEntropyLoss(weight=kwargs["weights"])
-        kwargs.setdefault("epoch", 100)
-        kwargs.setdefault("batch_size", 100)
-    elif name == "he":
-        # We train our model by AdaGrad [18] algorithm, in which
-        # the base learning rate is 0.01. In addition, we set the batch
-        # as 40, weight decay as 0.01 for all the layers
-        # The input of our network is the HSI 3D patch in the size of 7×7×Band
-        kwargs.setdefault("patch_size", 7)
-        kwargs.setdefault("batch_size", 40)
-        lr = kwargs.setdefault("learning_rate", 0.01)
-        center_pixel = True
-        model = HeEtAl(n_bands, n_classes, patch_size=kwargs["patch_size"])
-        # For Adagrad, we need to load the model on GPU before creating the optimizer
-        model = model.to(device)
-        optimizer = optim.Adagrad(model.parameters(), lr=lr, weight_decay=0.01)
-        criterion = nn.CrossEntropyLoss(weight=kwargs["weights"])
-    elif name == "luo":
-        # All  the  experiments  are  settled  by  the  learning  rate  of  0.1,
-        # the  decay  term  of  0.09  and  batch  size  of  100.
-        kwargs.setdefault("patch_size", 3)
-        kwargs.setdefault("batch_size", 100)
-        lr = kwargs.setdefault("learning_rate", 0.1)
-        center_pixel = True
-        model = LuoEtAl(n_bands, n_classes, patch_size=kwargs["patch_size"])
-        optimizer = optim.SGD(model.parameters(), lr=lr, weight_decay=0.09)
-        criterion = nn.CrossEntropyLoss(weight=kwargs["weights"])
-    elif name == "sharma":
-        # We train our S-CNN from scratch using stochastic gradient descent with
-        # momentum set to 0.9, weight decay of 0.0005, and with a batch size
-        # of 60.  We initialize an equal learning rate for all trainable layers
-        # to 0.05, which is manually decreased by a factor of 10 when the validation
-        # error stopped decreasing. Prior to the termination the learning rate was
-        # reduced two times at 15th and 25th epoch. [...]
-        # We trained the network for 30 epochs
-        kwargs.setdefault("batch_size", 60)
-        epoch = kwargs.setdefault("epoch", 30)
-        lr = kwargs.setdefault("lr", 0.05)
-        center_pixel = True
-        # We assume patch_size = 64
-        kwargs.setdefault("patch_size", 64)
-        model = SharmaEtAl(n_bands, n_classes, patch_size=kwargs["patch_size"])
-        optimizer = optim.SGD(model.parameters(), lr=lr, weight_decay=0.0005)
-        criterion = nn.CrossEntropyLoss(weight=kwargs["weights"])
-        kwargs.setdefault(
-            "scheduler",
-            optim.lr_scheduler.MultiStepLR(
-                optimizer, milestones=[epoch // 2, (5 * epoch) // 6], gamma=0.1
-            ),
-        )
-    elif name == "liu":
-        kwargs["supervision"] = "semi"
-        # "The learning rate is set to 0.001 empirically. The number of epochs is set to be 40."
-        kwargs.setdefault("epoch", 40)
-        lr = kwargs.setdefault("lr", 0.001)
-        center_pixel = True
-        patch_size = kwargs.setdefault("patch_size", 9)
-        model = LiuEtAl(n_bands, n_classes, patch_size)
-        optimizer = optim.SGD(model.parameters(), lr=lr)
-        # "The unsupervised cost is the squared error of the difference"
-        criterion = (
-            nn.CrossEntropyLoss(weight=kwargs["weights"]),
-            lambda rec, data: F.mse_loss(
-                rec, data[:, :, :, patch_size // 2, patch_size // 2].squeeze()
-            ),
-        )
-    elif name == "boulch":
-        kwargs["supervision"] = "semi"
-        kwargs.setdefault("patch_size", 1)
-        kwargs.setdefault("epoch", 100)
-        lr = kwargs.setdefault("lr", 0.001)
-        center_pixel = True
-        model = BoulchEtAl(n_bands, n_classes)
-        optimizer = optim.SGD(model.parameters(), lr=lr)
-        criterion = (
-            nn.CrossEntropyLoss(weight=kwargs["weights"]),
-            lambda rec, data: F.mse_loss(rec, data.squeeze()),
-        )
     elif name == "original_mou":
         kwargs.setdefault("patch_size", 1)
         center_pixel = True
@@ -188,6 +86,16 @@ def get_model(name, **kwargs):
         lr = kwargs.setdefault("lr", 0.001)
 
         model = MouEtAl(n_bands, n_classes, kwargs['patch_size'])
+        optimizer = torch.optim.Adam(model.parameters(), lr=lr)
+        # optimizer = optim.Adadelta(model.parameters(), lr=1.0)
+        criterion = nn.CrossEntropyLoss(weight=kwargs['weights'])
+    elif name == "paoletti":
+        kwargs.setdefault("patch_size", 1)
+        kwargs.setdefault("epoch", 100)
+        center_pixel = True
+        lr = kwargs.setdefault('lr', 0.001)
+
+        model = PaolettiEtAl(n_bands, n_classes, kwargs['patch_size'])
         optimizer = torch.optim.Adam(model.parameters(), lr=lr)
         criterion = nn.CrossEntropyLoss(weight=kwargs['weights'])
     else:
@@ -249,6 +157,59 @@ class Baseline(nn.Module):
         return x
 
 
+class PaolettiEtAl(nn.Module):
+    def __init__(self, input_size, num_classes, patch_size):
+        super(PaolettiEtAl, self).__init__()
+        self.num_classes = num_classes
+        self.patch_size = patch_size
+        self.hidden_size = 64
+        self.num_layers = 1
+
+        self.gru1 = nn.GRU(input_size, self.hidden_size, batch_first=True)  # x: (batch_size, seq, input_size)
+        self.tanh1 = nn.Tanh()
+
+        self.gru2 = nn.GRU(self.hidden_size, self.hidden_size, batch_first=True)
+        self.tanh2 = nn.Tanh()
+
+        self.fc = nn.Linear(self.hidden_size, self.num_classes)
+        self.softmax = nn.Softmax(dim=1)
+
+
+    def forward(self, x):
+        # print('\nforward')
+        # print(x.shape)
+
+                # set initial hidden states
+        # h0 = torch.zeros(self.num_layers, x.size(0), self.hidden_size).to('cuda')
+
+        x = x.reshape(-1, self.patch_size*self.patch_size, x.size(2)).to('cuda')
+        # print('reshape', x.shape)
+
+        x, _ = self.gru1(x)#, h0)
+        # print('gru1', x.shape)
+        x = self.tanh1(x)
+
+        x, _ = self.gru2(x)#, h0)
+        # print('gru2', x.shape)
+        x = self.tanh2(x)
+
+        # Decode the hidden state of the last time step
+        x = x[:, -1, :]
+        x = self.fc(x)
+        # print('linear', x.shape)
+
+        # x = self.softmax(x)
+        # print('final x', x)
+
+        return x
+
+
+
+
+
+        
+
+
 class MouEtAl(nn.Module):
     def __init__(self, input_size, num_classes, patch_size):
         super(MouEtAl, self).__init__()
@@ -258,7 +219,7 @@ class MouEtAl(nn.Module):
         self.num_classes = num_classes
         self.patch_size = patch_size
         
-        self.gru = nn.GRU(input_size, self.hidden_size, self.num_layers, batch_first=True) # x: (batch_size, seq, input_size)
+        self.gru = nn.GRU(input_size, self.hidden_size, batch_first=True) # x: (batch_size, seq, input_size)
 
         self.gru_bn = nn.BatchNorm1d(self.patch_size*self.patch_size)
         self.tanh = nn.Tanh()
@@ -266,30 +227,19 @@ class MouEtAl(nn.Module):
         # self.fc = nn.Linear(self.features_size, n_classes)
 
     def forward(self, x):
-        # print('->', x.shape)
         # set initial hidden states
         h0 = torch.zeros(self.num_layers, x.size(0), self.hidden_size).to('cuda')
 
         x = x.reshape(-1, self.patch_size*self.patch_size, x.size(2)).to('cuda')
-        # print('->', x.shape)
 
         x, _ = self.gru(x, h0)
-        # x, _ = self.rnn(x, h0)      # x = (batch_size, seq_length, hidden_size)
-        # print('rnn', x.shape)
 
         x = self.gru_bn(x)
-        # print('bn', x.shape)
         x = self.tanh(x)
-        # print('tanh', x.shape)
         # Decode the hidden state of the last time step
         x = x[:, -1, :]
-        # x: (n, 49?)
-        # print('before fc', x.shape)
         x = self.fc(x)
-        # print('fc', x.shape)
 
-        # x: (n, 17)
-        # print('x', x.shape)
         return x
 
 
@@ -1101,6 +1051,12 @@ def train(
         # Set the network to training mode
         net.train()
         avg_loss = 0.0
+        
+        # print('len dl', len(data_loader))
+        tqdm_data_loader = tqdm(
+            enumerate(data_loader), total=len(data_loader)
+        )
+        # print(tqdm_data_loader)
 
         # Run the training loop for one epoch
         for batch_idx, (data, target) in tqdm(
@@ -1195,7 +1151,35 @@ def train(
                 epoch=e,
                 metric=abs(metric),
             )
+        
+        if abs(metric) == max(val_accuracies):
+            print(f"\nBest so far. Val acc: {abs(metric)}")
+            save_best_model(
+                net,
+                camel_to_snake(str(net.__class__.__name__)),
+                data_loader.dataset.name,
+                epoch=e,
+                metric=abs(metric),
+            )
+            
 
+        
+def save_best_model(model, model_name, dataset_name, **kwargs):
+    model_dir = "./checkpoints/" + model_name + "/" + dataset_name + "/best_model/"
+    """
+    Using strftime in case it triggers exceptions on windows 10 system
+    """
+    # time_str = datetime.datetime.now().strftime('%Y_%m_%d_%H_%M_%S')
+    if not os.path.isdir(model_dir):
+        os.makedirs(model_dir, exist_ok=True)
+    if isinstance(model, torch.nn.Module):
+        filename = "best_model"
+        tqdm.write("Saving neural network weights in {}".format(filename))
+        torch.save(model.state_dict(), model_dir + filename + ".pth")
+    else:
+        filename = "best_model"
+        tqdm.write("Saving model params in {}".format(filename))
+        joblib.dump(model, model_dir + filename + ".pkl")
 
 def save_model(model, model_name, dataset_name, **kwargs):
     model_dir = "./checkpoints/" + model_name + "/" + dataset_name + "/"

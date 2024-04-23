@@ -120,7 +120,7 @@ def display_dataset(img, gt, bands, labels, palette, vis):
     if bands is not None:
         caption = "RGB (bands {}, {}, {})".format(*bands)
     else:
-        caption = 'No RBG bands'
+        caption = 'No RGB bands'
     # send to visdom server
     vis.images([np.transpose(rgb, (2, 0, 1))],
                 opts={'caption': caption})
@@ -511,6 +511,7 @@ def sample_gt(gt, train_size, mode='random'):
     elif mode == 'disjoint':
         train_gt = np.copy(gt)
         test_gt = np.copy(gt)
+        print('opa')
         for c in np.unique(gt):
             mask = gt == c
             for x in range(gt.shape[0]):
@@ -563,6 +564,7 @@ def compute_imf_weights(ground_truth, n_classes=None, ignored_classes=[]):
     median = np.median(frequencies[idx])
     weights[idx] = median / frequencies[idx]
     weights[frequencies == 0] = 0.
+    
     return weights
 
 def camel_to_snake(name):

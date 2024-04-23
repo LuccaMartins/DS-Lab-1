@@ -372,12 +372,20 @@ for run in range(N_RUNS):
         prediction = prediction.reshape(img.shape[:2])
     else:
         if CLASS_BALANCING:
+            print('Balancing Classes...')
+            # print(hyperparams["weights"])
+
             weights = compute_imf_weights(train_gt, N_CLASSES, IGNORED_LABELS)
-            hyperparams["weights"] = torch.from_numpy(weights)
+            weights = torch.from_numpy(weights).float().to(hyperparams['device'])
+            print(weights)
+            hyperparams["weights"] = weights
+            print('Balanced.')
         # Neural network
         model, optimizer, loss, hyperparams = get_model(MODEL, **hyperparams)
         # Split train set in train/val
-        train_gt, val_gt = sample_gt(train_gt, 0.95, mode="random")
+        # train_gt, val_gt = sample_gt(train_gt, 0.95, mode="random")
+        train_gt, val_gt = sample_gt(train_gt, hyperparams['training_sample'], mode="random")
+
         # Generate the dataset
         train_dataset = HyperX(img, train_gt, **hyperparams)
         train_loader = data.DataLoader(
@@ -403,6 +411,7 @@ for run in range(N_RUNS):
             # We would like to use device=hyperparams['device'] altough we have
             # to wait for torchsummary to be fixed first.
 
+        print('CHECKPOINT', CHECKPOINT)
         if CHECKPOINT is not None:
             model.load_state_dict(torch.load(CHECKPOINT))
 
@@ -423,6 +432,9 @@ for run in range(N_RUNS):
         except KeyboardInterrupt:
             # Allow the user to stop the training
             pass
+        
+        # print("trying to load    ", f'./checkpoints/{MODEL}_et_al/{DATASET}/best_model/best_model.pth')
+        # model.load_state_dict(torch.load(f'./checkpoints/{MODEL}_et_al/{DATASET}/best_model/best_model.pth'))
 
         probabilities = test(model, img, hyperparams)
         prediction = np.argmax(probabilities, axis=-1)
@@ -467,4 +479,7 @@ df_results['F1 scores'] = df_results['F1 scores'].apply(lambda x: pickle.dumps(x
 df_results['IOU'] = df_results['IOU'].apply(lambda x: pickle.dumps(x))
 
 
-df_results.to_csv(f'Results/{MODEL}/{DATASET}_{MODEL}_{EPOCH}epochs.csv')
+if CLASS_BALANCING:
+    df_results.to_csv(f'Results/Class Balancing/{MODEL}/{DATASET}_{MODEL}_{EPOCH}epochs.csv')
+else:
+    df_results.to_csv(f'Results/Not Balanced/{MODEL}/{DATASET}_{MODEL}_{EPOCH}epochs.csv')

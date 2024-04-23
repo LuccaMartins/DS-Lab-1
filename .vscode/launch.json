@@ -1,0 +1,16 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python Debugger: Current File with Arguments",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${C:\Users\Dell\Documents\ELTE\2nd Semester\Data Science Lab I\DS-Lab-1\main.py}",
+            "console": "integratedTerminal",
+            "args": "${python main.py --model mou --dataset IndianPines_PCA_8 --training_sample 0.5 --patch_size 7 --epoch 30 --cuda 0}"
+        }
+    ]
+}

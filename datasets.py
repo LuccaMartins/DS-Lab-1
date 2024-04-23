@@ -49,6 +49,11 @@ DATASETS_CONFIG = {
         "img": "Salinas_PCA_15.mat",
         "gt": "Salinas_gt.mat",
     },
+    "Salinas_PCA_20": {
+        "download": False,
+        "img": "Salinas_PCA_20.mat",
+        "gt": "Salinas_gt.mat",
+    },
     "Salinas_PCA_30": {
         "download": False,
         "img": "Salinas_PCA_30.mat",
@@ -63,7 +68,12 @@ DATASETS_CONFIG = {
         "download": False,
         "img": "Salinas_FastICA_15.mat",
         "gt": "Salinas_gt.mat",
-    },      
+    },    
+    "Salinas_FastICA_20": {
+        "download": False,
+        "img": "Salinas_FastICA_20.mat",
+        "gt": "Salinas_gt.mat",
+    },    
     "Salinas_FastICA_30": {
         "download": False,
         "img": "Salinas_FastICA_30.mat",
@@ -87,6 +97,11 @@ DATASETS_CONFIG = {
         "img": "Indian Pines_PCA_15.mat",
         "gt": "Indian_pines_gt.mat",
     },
+        "IndianPines_PCA_20": {
+        "download": False,
+        "img": "Indian Pines_PCA_20.mat",
+        "gt": "Indian_pines_gt.mat",
+    },
     "IndianPines_PCA_30": {
         "download": False,
         "img": "Indian Pines_PCA_30.mat",
@@ -101,7 +116,12 @@ DATASETS_CONFIG = {
         "download": False,
         "img": "Indian Pines_FastICA_15.mat",
         "gt": "Indian_pines_gt.mat",
-    },      
+    },    
+        "IndianPines_FastICA_20": {
+        "download": False,
+        "img": "Indian Pines_FastICA_20.mat",
+        "gt": "Indian_pines_gt.mat",
+    },   
     "IndianPines_FastICA_30": {
         "download": False,
         "img": "Indian Pines_FastICA_30.mat",

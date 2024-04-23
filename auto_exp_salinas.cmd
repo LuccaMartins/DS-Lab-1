@@ -1,0 +1,6 @@
+python main.py --model paoletti --dataset Salinas_PCA_8 --training_sample 0.5 --class_balancing --patch_size 7 --epoch 30 --cuda 0
+python main.py --model paoletti --dataset Salinas_FastICA_8 --training_sample 0.5 --class_balancing --patch_size 7 --epoch 30 --cuda 0
+python main.py --model paoletti --dataset Salinas_PCA_15 --training_sample 0.5 --class_balancing --patch_size 7 --epoch 30 --cuda 0
+python main.py --model paoletti --dataset Salinas_FastICA_15 --training_sample 0.5 --class_balancing --patch_size 7 --epoch 30 --cuda 0
+python main.py --model paoletti --dataset Salinas_PCA_30 --training_sample 0.5 --class_balancing --patch_size 7 --epoch 30 --cuda 0
+python main.py --model paoletti --dataset Salinas_FastICA_30 --training_sample 0.5 --class_balancing --patch_size 7 --epoch 30 --cuda 0
