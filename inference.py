@@ -21,20 +21,10 @@ parser.add_argument(
     type=str,
     default=None,
     help="Model to train. Available:\n"
-    "SVM (linear), "
-    "SVM_grid (grid search on linear, poly and RBF kernels), "
-    "baseline (fully connected NN), "
-    "hu (1D CNN), "
     "hamida (3D CNN + 1D classifier), "
-    "lee (3D FCN), "
-    "chen (3D CNN), "
     "li (3D CNN), "
-    "he (3D CNN), "
-    "luo (3D CNN), "
-    "sharma (2D CNN), "
-    "boulch (1D semi-supervised CNN), "
-    "liu (3D semi-supervised CNN), "
-    "mou (1D RNN)",
+    "mou (1D RNN with 1 GRU)",
+    "paoletti (1D RNN with 2 GRU)"
 )
 parser.add_argument(
     "--cuda",

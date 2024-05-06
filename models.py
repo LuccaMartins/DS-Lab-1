@@ -16,7 +16,6 @@ import joblib
 from tqdm import tqdm
 from utils import grouper, sliding_window, count_sliding_window, camel_to_snake
 
-
 def get_model(name, **kwargs):
     """
     Instantiate and obtain a model with adequate hyperparameters
@@ -87,7 +86,6 @@ def get_model(name, **kwargs):
 
         model = MouEtAl(n_bands, n_classes, kwargs['patch_size'])
         optimizer = torch.optim.Adam(model.parameters(), lr=lr)
-        # optimizer = optim.Adadelta(model.parameters(), lr=1.0)
         criterion = nn.CrossEntropyLoss(weight=kwargs['weights'])
     elif name == "paoletti":
         kwargs.setdefault("patch_size", 1)
@@ -1015,6 +1013,7 @@ def train(
     display=None,
     val_loader=None,
     supervision="full",
+    class_balancing=False
 ):
     """
     Training loop to optimize a network for several epochs and a specified loss
@@ -1150,6 +1149,7 @@ def train(
                 data_loader.dataset.name,
                 epoch=e,
                 metric=abs(metric),
+                class_balancing=class_balancing
             )
         
         if abs(metric) == max(val_accuracies):
@@ -1160,12 +1160,17 @@ def train(
                 data_loader.dataset.name,
                 epoch=e,
                 metric=abs(metric),
+                class_balancing=class_balancing
             )
             
 
         
 def save_best_model(model, model_name, dataset_name, **kwargs):
-    model_dir = "./checkpoints/" + model_name + "/" + dataset_name + "/best_model/"
+    if kwargs['class_balancing']:
+        print('opa')
+        model_dir = "./checkpoints/" + model_name + "/class_balancing/" + dataset_name + "/best_model/"
+    else: 
+        model_dir = "./checkpoints/" + model_name + "/no_class_balancing/" + dataset_name + "/best_model/"
     """
     Using strftime in case it triggers exceptions on windows 10 system
     """
@@ -1182,7 +1187,11 @@ def save_best_model(model, model_name, dataset_name, **kwargs):
         joblib.dump(model, model_dir + filename + ".pkl")
 
 def save_model(model, model_name, dataset_name, **kwargs):
-    model_dir = "./checkpoints/" + model_name + "/" + dataset_name + "/"
+    if kwargs['class_balancing']:
+        print('opa')
+        model_dir = "./checkpoints/" + model_name + "/class_balancing/" + dataset_name + "/"
+    else: 
+        model_dir = "./checkpoints/" + model_name + "/no_class_balancing/" + dataset_name + "/"
     """
     Using strftime in case it triggers exceptions on windows 10 system
     """
@@ -1190,7 +1199,10 @@ def save_model(model, model_name, dataset_name, **kwargs):
     if not os.path.isdir(model_dir):
         os.makedirs(model_dir, exist_ok=True)
     if isinstance(model, torch.nn.Module):
-        filename = time_str + "_epoch{epoch}_{metric:.2f}".format(
+        # filename = time_str + "_epoch{epoch}_{metric:.2f}".format(
+        #     **kwargs
+        # )
+        filename = "epoch{epoch}_{metric:.2f}".format(
             **kwargs
         )
         tqdm.write("Saving neural network weights in {}".format(filename))

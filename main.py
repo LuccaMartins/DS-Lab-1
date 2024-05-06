@@ -383,8 +383,8 @@ for run in range(N_RUNS):
         # Neural network
         model, optimizer, loss, hyperparams = get_model(MODEL, **hyperparams)
         # Split train set in train/val
-        # train_gt, val_gt = sample_gt(train_gt, 0.95, mode="random")
-        train_gt, val_gt = sample_gt(train_gt, hyperparams['training_sample'], mode="random")
+        train_gt, val_gt = sample_gt(train_gt, 0.95, mode="random")
+        # train_gt, val_gt = sample_gt(train_gt, hyperparams['training_sample'], mode="random")
 
         # Generate the dataset
         train_dataset = HyperX(img, train_gt, **hyperparams)
@@ -400,6 +400,11 @@ for run in range(N_RUNS):
             # pin_memory=hyperparams['device'],
             batch_size=hyperparams["batch_size"],
         )
+
+        print(train_gt.shape)
+        print(test_gt.shape)
+        print(val_gt.shape)
+
 
         print(hyperparams)
         print("Network :")
@@ -428,13 +433,17 @@ for run in range(N_RUNS):
                 supervision=hyperparams["supervision"],
                 val_loader=val_loader,
                 display=viz,
+                class_balancing=CLASS_BALANCING
             )
         except KeyboardInterrupt:
             # Allow the user to stop the training
             pass
         
         # print("trying to load    ", f'./checkpoints/{MODEL}_et_al/{DATASET}/best_model/best_model.pth')
-        # model.load_state_dict(torch.load(f'./checkpoints/{MODEL}_et_al/{DATASET}/best_model/best_model.pth'))
+        if CLASS_BALANCING:
+            model.load_state_dict(torch.load(f'./checkpoints/{MODEL}_et_al/class_balancing/{DATASET}/best_model/best_model.pth'))
+        else:
+            model.load_state_dict(torch.load(f'./checkpoints/{MODEL}_et_al/no_class_balancing/{DATASET}/best_model/best_model.pth'))
 
         probabilities = test(model, img, hyperparams)
         prediction = np.argmax(probabilities, axis=-1)
@@ -445,7 +454,7 @@ for run in range(N_RUNS):
         ignored_labels=hyperparams["ignored_labels"],
         n_classes=N_CLASSES,
     )
-
+    
     mask = np.zeros(gt.shape, dtype="bool")
     for l in IGNORED_LABELS:
         mask[gt == l] = True
