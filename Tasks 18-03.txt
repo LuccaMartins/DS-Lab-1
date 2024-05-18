@@ -1,3 +1,0 @@
-implementar RNN rasa e profunda
-implementar CNN normal rasa e profunda
-implementar IOU como métrica

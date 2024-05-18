@@ -1167,7 +1167,7 @@ def train(
         
 def save_best_model(model, model_name, dataset_name, **kwargs):
     if kwargs['class_balancing']:
-        print('opa')
+        # print('opa')
         model_dir = "./checkpoints/" + model_name + "/class_balancing/" + dataset_name + "/best_model/"
     else: 
         model_dir = "./checkpoints/" + model_name + "/no_class_balancing/" + dataset_name + "/best_model/"
@@ -1188,7 +1188,7 @@ def save_best_model(model, model_name, dataset_name, **kwargs):
 
 def save_model(model, model_name, dataset_name, **kwargs):
     if kwargs['class_balancing']:
-        print('opa')
+        # print('opa')
         model_dir = "./checkpoints/" + model_name + "/class_balancing/" + dataset_name + "/"
     else: 
         model_dir = "./checkpoints/" + model_name + "/no_class_balancing/" + dataset_name + "/"

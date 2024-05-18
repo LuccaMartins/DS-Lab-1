@@ -9,8 +9,5 @@ python main.py --model mou --dataset IndianPines_PCA_30 --training_sample 0.5 --
 
 
 
-DeepCNN: 'hamida'
-ShallowCNN: 'li'
-
-DeepRNN: 'Mou' - still fixing it
+Deep CNN: 'hamida', Shallow CNN: 'li', Deep RNN: 'paoletti', Shallow RNN: 'Mou'
 
