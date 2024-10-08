@@ -79,6 +79,16 @@ DATASETS_CONFIG = {
         "img": "Salinas_FastICA_30.mat",
         "gt": "Salinas_gt.mat",
     },   
+    "Salinas_UMAP_8": {
+        "download": False,
+        "img": "Salinas_UMAP_8.mat",
+        "gt": "Salinas_gt.mat",
+    },   
+    "Salinas_Corr_8": {
+        "download": False,
+        "img": "Salinas_Corr_8.mat",
+        "gt": "Salinas_gt.mat",
+    },   
     "IndianPines": {
         "urls": [
             "http://www.ehu.eus/ccwintco/uploads/6/67/Indian_pines_corrected.mat",
