@@ -89,6 +89,47 @@ DATASETS_CONFIG = {
         "img": "Salinas_Corr_8.mat",
         "gt": "Salinas_gt.mat",
     },   
+    "Salinas_Corr_15": {
+        "download": False,
+        "img": "Salinas_Corr_15.mat",
+        "gt": "Salinas_gt.mat",
+    },   
+    "Salinas_Corr_30": {
+        "download": False,
+        "img": "Salinas_Corr_30.mat",
+        "gt": "Salinas_gt.mat",
+    }, 
+    "Salinas_DiffMaps_8": {
+        "download": False,
+        "img": "Salinas_DiffMaps_8.mat",
+        "gt": "Salinas_gt.mat",
+    },   
+    "Salinas_DiffMaps_15": {
+        "download": False,
+        "img": "Salinas_DiffMaps_15.mat",
+        "gt": "Salinas_gt.mat",
+    },   
+    "Salinas_DiffMaps_30": {
+        "download": False,
+        "img": "Salinas_DiffMaps_30.mat",
+        "gt": "Salinas_gt.mat",
+    }, 
+    "Salinas_SOM_8": {
+        "download": False,
+        "img": "Salinas_SOM_8.mat",
+        "gt": "Salinas_gt.mat",
+    },   
+    "Salinas_SOM_15": {
+        "download": False,
+        "img": "Salinas_SOM_15.mat",
+        "gt": "Salinas_gt.mat",
+    },   
+    "Salinas_SOM_30": {
+        "download": False,
+        "img": "Salinas_SOM_30.mat",
+        "gt": "Salinas_gt.mat",
+    }, 
+ 
     "IndianPines": {
         "urls": [
             "http://www.ehu.eus/ccwintco/uploads/6/67/Indian_pines_corrected.mat",
