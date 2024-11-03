@@ -491,4 +491,5 @@ df_results['IOU'] = df_results['IOU'].apply(lambda x: pickle.dumps(x))
 if CLASS_BALANCING:
     df_results.to_csv(f'Results/Class Balancing/{MODEL}/{DATASET}_{MODEL}_{EPOCH}epochs.csv')
 else:
+    print('saving?')
     df_results.to_csv(f'Results/Not Balanced/{MODEL}/{DATASET}_{MODEL}_{EPOCH}epochs.csv')

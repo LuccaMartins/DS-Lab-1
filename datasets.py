@@ -178,6 +178,66 @@ DATASETS_CONFIG = {
         "img": "Indian Pines_FastICA_30.mat",
         "gt": "Indian_pines_gt.mat",
     },   
+    "IndianPines_UMAP_8": {
+        "download": False,
+        "img": "Indian Pines_UMAP_8.mat",
+        "gt": "Indian_pines_gt.mat",
+    },    
+    "IndianPines_UMAP_15": {
+        "download": False,
+        "img": "Indian Pines_UMAP_15.mat",
+        "gt": "Indian_pines_gt.mat",
+    },   
+    "IndianPines_UMAP_30": {
+        "download": False,
+        "img": "Indian Pines_UMAP_30.mat",
+        "gt": "Indian_pines_gt.mat",
+    },  
+    "IndianPines_DiffMaps_8": {
+        "download": False,
+        "img": "Indian Pines_DiffMaps_8.mat",
+        "gt": "Indian_pines_gt.mat",
+    },    
+    "IndianPines_DiffMaps_15": {
+        "download": False,
+        "img": "Indian Pines_DiffMaps_15.mat",
+        "gt": "Indian_pines_gt.mat",
+    },   
+    "IndianPines_DiffMaps_30": {
+        "download": False,
+        "img": "Indian Pines_DiffMaps_30.mat",
+        "gt": "Indian_pines_gt.mat",
+    },  
+    "IndianPines_SOM_8": {
+        "download": False,
+        "img": "Indian Pines_SOM_8.mat",
+        "gt": "Indian_pines_gt.mat",
+    },    
+    "IndianPines_SOM_15": {
+        "download": False,
+        "img": "Indian Pines_SOM_15.mat",
+        "gt": "Indian_pines_gt.mat",
+    },   
+    "IndianPines_SOM_30": {
+        "download": False,
+        "img": "Indian Pines_SOM_30.mat",
+        "gt": "Indian_pines_gt.mat",
+    }, 
+    "IndianPines_Corr_8": {
+        "download": False,
+        "img": "Indian Pines_Corr_8.mat",
+        "gt": "Indian_pines_gt.mat",
+    },    
+    "IndianPines_Corr_15": {
+        "download": False,
+        "img": "Indian Pines_Corr_15.mat",
+        "gt": "Indian_pines_gt.mat",
+    },   
+    "IndianPines_Corr_30": {
+        "download": False,
+        "img": "Indian Pines_Corr_30.mat",
+        "gt": "Indian_pines_gt.mat",
+    }, 
     "PaviaU": {
         "urls": [
             "http://www.ehu.eus/ccwintco/uploads/e/ee/PaviaU.mat",
