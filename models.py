@@ -209,6 +209,7 @@ class PaolettiEtAl(nn.Module):
 
 
 class MouEtAl(nn.Module):
+    # MouEtAl(n_bands, n_classes, kwargs['patch_size'])
     def __init__(self, input_size, num_classes, patch_size):
         super(MouEtAl, self).__init__()
         self.num_layers = 1

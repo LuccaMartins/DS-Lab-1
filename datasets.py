@@ -83,6 +83,16 @@ DATASETS_CONFIG = {
         "download": False,
         "img": "Salinas_UMAP_8.mat",
         "gt": "Salinas_gt.mat",
+    },  
+    "Salinas_UMAP_15": {
+        "download": False,
+        "img": "Salinas_UMAP_15.mat",
+        "gt": "Salinas_gt.mat",
+    },  
+    "Salinas_UMAP_30": {
+        "download": False,
+        "img": "Salinas_UMAP_30.mat",
+        "gt": "Salinas_gt.mat",
     },   
     "Salinas_Corr_8": {
         "download": False,
@@ -127,6 +137,22 @@ DATASETS_CONFIG = {
     "Salinas_SOM_30": {
         "download": False,
         "img": "Salinas_SOM_30.mat",
+        "gt": "Salinas_gt.mat",
+    }, 
+
+    "Salinas_Var_8": {
+        "download": False,
+        "img": "Salinas_Var_8.mat",
+        "gt": "Salinas_gt.mat",
+    },    
+    "Salinas_Var_15": {
+        "download": False,
+        "img": "Salinas_Var_15.mat",
+        "gt": "Salinas_gt.mat",
+    },   
+    "Salinas_Var_30": {
+        "download": False,
+        "img": "Salinas_Var_30.mat",
         "gt": "Salinas_gt.mat",
     }, 
  
@@ -236,6 +262,21 @@ DATASETS_CONFIG = {
     "IndianPines_Corr_30": {
         "download": False,
         "img": "Indian Pines_Corr_30.mat",
+        "gt": "Indian_pines_gt.mat",
+    }, 
+    "IndianPines_Var_8": {
+        "download": False,
+        "img": "Indian Pines_Var_8.mat",
+        "gt": "Indian_pines_gt.mat",
+    },    
+    "IndianPines_Var_15": {
+        "download": False,
+        "img": "Indian Pines_Var_15.mat",
+        "gt": "Indian_pines_gt.mat",
+    },   
+    "IndianPines_Var_30": {
+        "download": False,
+        "img": "Indian Pines_Var_30.mat",
         "gt": "Indian_pines_gt.mat",
     }, 
     "PaviaU": {

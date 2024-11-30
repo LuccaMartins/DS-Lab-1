@@ -486,32 +486,37 @@ def sample_gt(gt, train_size, mode='random'):
        train_size = int(train_size)
 
     if mode == 'random':
-       train_indices, test_indices = sklearn.model_selection.train_test_split(X, train_size=train_size, stratify=y)
+       train_indices, test_indices = sklearn.model_selection.train_test_split(X, train_size=train_size, stratify=y, random_state=555)
+       print(train_indices[:5])
        train_indices = [list(t) for t in zip(*train_indices)]
        test_indices = [list(t) for t in zip(*test_indices)]
        train_gt[train_indices] = gt[train_indices]
        test_gt[test_indices] = gt[test_indices]
-    elif mode == 'fixed':
-       print("Sampling {} with train size = {}".format(mode, train_size))
-       train_indices, test_indices = [], []
-       for c in np.unique(gt):
-           if c == 0:
-              continue
-           indices = np.nonzero(gt == c)
-           X = list(zip(*indices)) # x,y features
+       print('Training Indexes', train_indices[0][:5], '...')
 
-           train, test = sklearn.model_selection.train_test_split(X, train_size=train_size)
-           train_indices += train
-           test_indices += test
-       train_indices = [list(t) for t in zip(*train_indices)]
-       test_indices = [list(t) for t in zip(*test_indices)]
-       train_gt[train_indices] = gt[train_indices]
-       test_gt[test_indices] = gt[test_indices]
+    elif mode == 'fixed':
+        print("Sampling {} with train size = {}".format(mode, train_size))
+        train_indices, test_indices = [], []
+        for c in np.unique(gt):
+            if c == 0:
+                continue
+            indices = np.nonzero(gt == c)
+            X = list(zip(*indices)) # x,y features
+
+            train, test = sklearn.model_selection.train_test_split(X, train_size=train_size, random_state=555)
+            train_indices += train
+            test_indices += test
+        train_indices = [list(t) for t in zip(*train_indices)]
+        test_indices = [list(t) for t in zip(*test_indices)]
+        print('Training Indexes', train_indices[0][:5], '...')
+
+
+        train_gt[train_indices] = gt[train_indices]
+        test_gt[test_indices] = gt[test_indices]
 
     elif mode == 'disjoint':
         train_gt = np.copy(gt)
         test_gt = np.copy(gt)
-        print('opa')
         for c in np.unique(gt):
             mask = gt == c
             for x in range(gt.shape[0]):
