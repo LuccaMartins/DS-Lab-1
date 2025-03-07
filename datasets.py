@@ -155,6 +155,11 @@ DATASETS_CONFIG = {
         "img": "Salinas_Var_30.mat",
         "gt": "Salinas_gt.mat",
     }, 
+    "Salinas_AE1_8": {
+        "download": False,
+        "img": "Salinas_AE1_8.mat",
+        "gt": "Salinas_gt.mat",
+    }, 
  
     "IndianPines": {
         "urls": [
@@ -279,6 +284,20 @@ DATASETS_CONFIG = {
         "img": "Indian Pines_Var_30.mat",
         "gt": "Indian_pines_gt.mat",
     }, 
+    "IndianPines_AE1_8": {
+        "download": False,
+        "img": "IndianPines_AE1_8.mat",
+        "gt": "Indian_pines_gt.mat",
+    },
+    "IndianPines_AE2_8": {
+        "download": False,
+        "img": "IndianPines_AE2_8.mat",
+        "gt": "Indian_pines_gt.mat",
+    },
+
+
+
+
     "PaviaU": {
         "urls": [
             "http://www.ehu.eus/ccwintco/uploads/e/ee/PaviaU.mat",
