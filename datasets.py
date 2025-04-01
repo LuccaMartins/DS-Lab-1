@@ -160,6 +160,78 @@ DATASETS_CONFIG = {
         "img": "Salinas_AE1_8.mat",
         "gt": "Salinas_gt.mat",
     }, 
+        "Salinas_AE1_15": {
+        "download": False,
+        "img": "Salinas_AE1_15.mat",
+        "gt": "Salinas_gt.mat",
+    }, 
+        "Salinas_AE1_30": {
+        "download": False,
+        "img": "Salinas_AE1_30.mat",
+        "gt": "Salinas_gt.mat",
+    }, 
+        "Salinas_AE2_8": {
+        "download": False,
+        "img": "Salinas_AE2_8.mat",
+        "gt": "Salinas_gt.mat",
+    }, 
+        "Salinas_AE2_15": {
+        "download": False,
+        "img": "Salinas_AE2_15.mat",
+        "gt": "Salinas_gt.mat",
+    }, 
+        "Salinas_AE2_30": {
+        "download": False,
+        "img": "Salinas_AE2_30.mat",
+        "gt": "Salinas_gt.mat",
+    }, 
+    "Salinas_PCA-Split_8": {
+        "download": False,
+        "img": "Salinas_PCA-Split_8.mat",
+        "gt": "Salinas_gt.mat",
+    }, 
+    "Salinas_PCA-Split_15": {
+        "download": False,
+        "img": "Salinas_PCA-Split_15.mat",
+        "gt": "Salinas_gt.mat",
+    }, 
+    "Salinas_PCA-Split_30": {
+        "download": False,
+        "img": "Salinas_PCA-Split_30.mat",
+        "gt": "Salinas_gt.mat",
+    }, 
+    "Salinas_FastICA-Split_8": {
+        "download": False,
+        "img": "Salinas_FastICA-Split_8.mat",
+        "gt": "Salinas_gt.mat",
+    }, 
+    "Salinas_FastICA-Split_15": {
+        "download": False,
+        "img": "Salinas_FastICA-Split_15.mat",
+        "gt": "Salinas_gt.mat",
+    }, 
+    "Salinas_FastICA-Split_30": {
+        "download": False,
+        "img": "Salinas_FastICA-Split_30.mat",
+        "gt": "Salinas_gt.mat",
+    },         
+    "Salinas_UMAP-Split_8": {
+        "download": False,
+        "img": "Salinas_UMAP-Split_8.mat",
+        "gt": "Salinas_gt.mat",
+    }, 
+        "Salinas_UMAP-Split_15": {
+        "download": False,
+        "img": "Salinas_UMAP-Split_15.mat",
+        "gt": "Salinas_gt.mat",
+    }, 
+        "Salinas_UMAP-Split_30": {
+        "download": False,
+        "img": "Salinas_UMAP-Split_30.mat",
+        "gt": "Salinas_gt.mat",
+    }, 
+
+
  
     "IndianPines": {
         "urls": [
@@ -289,11 +361,81 @@ DATASETS_CONFIG = {
         "img": "IndianPines_AE1_8.mat",
         "gt": "Indian_pines_gt.mat",
     },
+    "IndianPines_AE1_15": {
+        "download": False,
+        "img": "IndianPines_AE1_15.mat",
+        "gt": "Indian_pines_gt.mat",
+    },
+        "IndianPines_AE1_30": {
+        "download": False,
+        "img": "IndianPines_AE1_30.mat",
+        "gt": "Indian_pines_gt.mat",
+    },
+
     "IndianPines_AE2_8": {
         "download": False,
         "img": "IndianPines_AE2_8.mat",
         "gt": "Indian_pines_gt.mat",
     },
+        "IndianPines_AE2_15": {
+        "download": False,
+        "img": "IndianPines_AE2_15.mat",
+        "gt": "Indian_pines_gt.mat",
+    },
+        "IndianPines_AE2_30": {
+        "download": False,
+        "img": "IndianPines_AE2_30.mat",
+        "gt": "Indian_pines_gt.mat",
+    },
+        "IndianPines_PCA-Split_8": {
+        "download": False,
+        "img": "IndianPines_PCA-Split_8.mat",
+        "gt": "Indian_pines_gt.mat",
+    },
+        "IndianPines_PCA-Split_15": {
+        "download": False,
+        "img": "IndianPines_PCA-Split_15.mat",
+        "gt": "Indian_pines_gt.mat",
+    },
+        "IndianPines_PCA-Split_30": {
+        "download": False,
+        "img": "IndianPines_PCA-Split_30.mat",
+        "gt": "Indian_pines_gt.mat",
+    },
+        "IndianPines_FastICA-Split_8": {
+        "download": False,
+        "img": "IndianPines_FastICA-Split_8.mat",
+        "gt": "Indian_pines_gt.mat",
+    },
+        "IndianPines_FastICA-Split_15": {
+        "download": False,
+        "img": "IndianPines_FastICA-Split_15.mat",
+        "gt": "Indian_pines_gt.mat",
+    },
+        "IndianPines_FastICA-Split_30": {
+        "download": False,
+        "img": "IndianPines_FastICA-Split_30.mat",
+        "gt": "Indian_pines_gt.mat",
+    },
+      "IndianPines_UMAP-Split_8": {
+        "download": False,
+        "img": "IndianPines_UMAP-Split_8.mat",
+        "gt": "Indian_pines_gt.mat",
+    },
+        "IndianPines_UMAP-Split_15": {
+        "download": False,
+        "img": "IndianPines_UMAP-Split_15.mat",
+        "gt": "Indian_pines_gt.mat",
+    },
+        "IndianPines_UMAP-Split_30": {
+        "download": False,
+        "img": "IndianPines_UMAP-Split_30.mat",
+        "gt": "Indian_pines_gt.mat",
+    },
+    
+
+
+
 
 
 

@@ -1,0 +1,257 @@
+Dataset,DR Method,Model,T-Test Comparison,T-Test P-value,Trend (T-Test),F-statistic (ANOVA),P-value (ANOVA),ANOVA Result,Trend (ANOVA)
+IndianPines,AE1,hamida,8 vs 15,8.985492342725599e-05,More components (15) improve performance,,,,
+IndianPines,AE1,hamida,8 vs 30,0.00016073514534459897,More components (30) improve performance,,,,
+IndianPines,AE1,hamida,15 vs 30,0.20135192157877368,No significant difference based on T-test,,,,
+IndianPines,AE1,hamida,,,,2.1369634645813873,0.12910607022884596,Fail to reject null hypothesis: More components do not significantly improve performance.,No significant difference
+IndianPines,AE1,li,8 vs 15,0.011904734980813165,More components (15) improve performance,,,,
+IndianPines,AE1,li,8 vs 30,0.008801152679189128,Fewer components (8) improve performance,,,,
+IndianPines,AE1,li,15 vs 30,0.0002834239470076651,Fewer components (15) improve performance,,,,
+IndianPines,AE1,li,,,,0.20416855692011773,0.8160293001867813,Fail to reject null hypothesis: More components do not significantly improve performance.,No significant difference
+IndianPines,AE1,mou,8 vs 15,0.32943553261908676,No significant difference based on T-test,,,,
+IndianPines,AE1,mou,8 vs 30,0.3651811537566638,No significant difference based on T-test,,,,
+IndianPines,AE1,mou,15 vs 30,0.7955931539427329,No significant difference based on T-test,,,,
+IndianPines,AE1,mou,,,,0.09573657085306339,0.9088764347563707,Fail to reject null hypothesis: More components do not significantly improve performance.,No significant difference
+IndianPines,AE1,paoletti,8 vs 15,3.693487979738029e-05,More components (15) improve performance,,,,
+IndianPines,AE1,paoletti,8 vs 30,0.12444539881605053,No significant difference based on T-test,,,,
+IndianPines,AE1,paoletti,15 vs 30,0.032068065285838186,Fewer components (15) improve performance,,,,
+IndianPines,AE1,paoletti,,,,0.614138865521316,0.545303502080349,Fail to reject null hypothesis: More components do not significantly improve performance.,No significant difference
+IndianPines,AE2,hamida,8 vs 15,0.10194681995660504,No significant difference based on T-test,,,,
+IndianPines,AE2,hamida,8 vs 30,0.0007459956101697333,More components (30) improve performance,,,,
+IndianPines,AE2,hamida,15 vs 30,0.0064161778662027436,More components (30) improve performance,,,,
+IndianPines,AE2,hamida,,,,0.47707272895421277,0.6235084197563807,Fail to reject null hypothesis: More components do not significantly improve performance.,No significant difference
+IndianPines,AE2,li,8 vs 15,0.405052464667641,No significant difference based on T-test,,,,
+IndianPines,AE2,li,8 vs 30,0.003177988154178193,More components (30) improve performance,,,,
+IndianPines,AE2,li,15 vs 30,0.04532510849757467,More components (30) improve performance,,,,
+IndianPines,AE2,li,,,,0.022035006767904243,0.9782158796115578,Fail to reject null hypothesis: More components do not significantly improve performance.,No significant difference
+IndianPines,AE2,mou,8 vs 15,8.837186549189438e-05,More components (15) improve performance,,,,
+IndianPines,AE2,mou,8 vs 30,0.001093200513421649,More components (30) improve performance,,,,
+IndianPines,AE2,mou,15 vs 30,0.7825132597551023,No significant difference based on T-test,,,,
+IndianPines,AE2,mou,,,,5.1300482399540295,0.009569316286523383,Reject null hypothesis: More components significantly affect performance!,Significant difference detected
+IndianPines,AE2,paoletti,8 vs 15,0.000564578184659933,More components (15) improve performance,,,,
+IndianPines,AE2,paoletti,8 vs 30,0.00023675166659800466,More components (30) improve performance,,,,
+IndianPines,AE2,paoletti,15 vs 30,0.11669918828892566,No significant difference based on T-test,,,,
+IndianPines,AE2,paoletti,,,,2.105250185808197,0.13292331618219513,Fail to reject null hypothesis: More components do not significantly improve performance.,No significant difference
+IndianPines,FastICA,hamida,8 vs 15,0.004131330605860212,More components (15) improve performance,,,,
+IndianPines,FastICA,hamida,8 vs 30,0.00869915359632451,More components (30) improve performance,,,,
+IndianPines,FastICA,hamida,15 vs 30,0.5847982777911593,No significant difference based on T-test,,,,
+IndianPines,FastICA,hamida,,,,0.005605975624051558,0.9944103595023857,Fail to reject null hypothesis: More components do not significantly improve performance.,No significant difference
+IndianPines,FastICA,li,8 vs 15,0.022760367693759595,Fewer components (8) improve performance,,,,
+IndianPines,FastICA,li,8 vs 30,6.609611311226269e-11,Fewer components (8) improve performance,,,,
+IndianPines,FastICA,li,15 vs 30,7.335440076526608e-11,Fewer components (15) improve performance,,,,
+IndianPines,FastICA,li,,,,114.59724446430265,5.283959737235504e-19,Reject null hypothesis: More components significantly affect performance!,Significant difference detected
+IndianPines,FastICA,mou,8 vs 15,0.0024318001348635587,More components (15) improve performance,,,,
+IndianPines,FastICA,mou,8 vs 30,0.6334838905701186,No significant difference based on T-test,,,,
+IndianPines,FastICA,mou,15 vs 30,0.0013884449781051342,Fewer components (15) improve performance,,,,
+IndianPines,FastICA,mou,,,,0.47735226839946654,0.6233375460701163,Fail to reject null hypothesis: More components do not significantly improve performance.,No significant difference
+IndianPines,FastICA,paoletti,8 vs 15,0.0007777376276333788,More components (15) improve performance,,,,
+IndianPines,FastICA,paoletti,8 vs 30,0.27443216000228665,No significant difference based on T-test,,,,
+IndianPines,FastICA,paoletti,15 vs 30,0.01228510380000522,Fewer components (15) improve performance,,,,
+IndianPines,FastICA,paoletti,,,,0.32347242211031413,0.7251970051965214,Fail to reject null hypothesis: More components do not significantly improve performance.,No significant difference
+IndianPines,FastICA-Split,hamida,8 vs 15,0.1062953138537655,No significant difference based on T-test,,,,
+IndianPines,FastICA-Split,hamida,8 vs 30,0.0015397134027591432,More components (30) improve performance,,,,
+IndianPines,FastICA-Split,hamida,15 vs 30,0.005405037153494033,More components (30) improve performance,,,,
+IndianPines,FastICA-Split,hamida,,,,0.04411259390106789,0.956884960241592,Fail to reject null hypothesis: More components do not significantly improve performance.,No significant difference
+IndianPines,FastICA-Split,li,8 vs 15,0.6118210230630143,No significant difference based on T-test,,,,
+IndianPines,FastICA-Split,li,8 vs 30,0.030951575731160655,More components (30) improve performance,,,,
+IndianPines,FastICA-Split,li,15 vs 30,0.03524430524540291,More components (30) improve performance,,,,
+IndianPines,FastICA-Split,li,,,,0.03174021168575865,0.9687785364020061,Fail to reject null hypothesis: More components do not significantly improve performance.,No significant difference
+IndianPines,FastICA-Split,mou,8 vs 15,0.0010917867983570883,More components (15) improve performance,,,,
+IndianPines,FastICA-Split,mou,8 vs 30,0.0007830658303854386,More components (30) improve performance,,,,
+IndianPines,FastICA-Split,mou,15 vs 30,0.03497795111132154,More components (30) improve performance,,,,
+IndianPines,FastICA-Split,mou,,,,0.7517852961462121,0.47699420270318327,Fail to reject null hypothesis: More components do not significantly improve performance.,No significant difference
+IndianPines,FastICA-Split,paoletti,8 vs 15,0.06068384962186305,No significant difference based on T-test,,,,
+IndianPines,FastICA-Split,paoletti,8 vs 30,0.09310997374125744,No significant difference based on T-test,,,,
+IndianPines,FastICA-Split,paoletti,15 vs 30,0.9665221407957401,No significant difference based on T-test,,,,
+IndianPines,FastICA-Split,paoletti,,,,0.08989603375522888,0.9141797236746676,Fail to reject null hypothesis: More components do not significantly improve performance.,No significant difference
+IndianPines,PCA,hamida,8 vs 15,0.5864338680253318,No significant difference based on T-test,,,,
+IndianPines,PCA,hamida,8 vs 30,0.7594308414472648,No significant difference based on T-test,,,,
+IndianPines,PCA,hamida,15 vs 30,0.22679491425146847,No significant difference based on T-test,,,,
+IndianPines,PCA,hamida,,,,0.00028471305899785117,0.9997153291562049,Fail to reject null hypothesis: More components do not significantly improve performance.,No significant difference
+IndianPines,PCA,li,8 vs 15,0.0008131181168982682,Fewer components (8) improve performance,,,,
+IndianPines,PCA,li,8 vs 30,7.294312739496865e-05,Fewer components (8) improve performance,,,,
+IndianPines,PCA,li,15 vs 30,0.00010922543057586961,Fewer components (15) improve performance,,,,
+IndianPines,PCA,li,,,,5.3322055411332565,0.008105812076695966,Reject null hypothesis: More components significantly affect performance!,Significant difference detected
+IndianPines,PCA,mou,8 vs 15,0.001621600642961488,More components (15) improve performance,,,,
+IndianPines,PCA,mou,8 vs 30,0.1834482732438709,No significant difference based on T-test,,,,
+IndianPines,PCA,mou,15 vs 30,0.0005874608783270423,Fewer components (15) improve performance,,,,
+IndianPines,PCA,mou,,,,0.3279125722531519,0.7220270817198633,Fail to reject null hypothesis: More components do not significantly improve performance.,No significant difference
+IndianPines,PCA,paoletti,8 vs 15,0.06343063976268695,No significant difference based on T-test,,,,
+IndianPines,PCA,paoletti,8 vs 30,0.0017717840111430257,Fewer components (8) improve performance,,,,
+IndianPines,PCA,paoletti,15 vs 30,0.00026957141498820485,Fewer components (15) improve performance,,,,
+IndianPines,PCA,paoletti,,,,1.367738639534287,0.2644281530263884,Fail to reject null hypothesis: More components do not significantly improve performance.,No significant difference
+IndianPines,PCA-Split,hamida,8 vs 15,0.000791567911065332,More components (15) improve performance,,,,
+IndianPines,PCA-Split,hamida,8 vs 30,0.0009815796334712418,More components (30) improve performance,,,,
+IndianPines,PCA-Split,hamida,15 vs 30,0.35711916147515577,No significant difference based on T-test,,,,
+IndianPines,PCA-Split,hamida,,,,0.08104771707593018,0.9222756082033445,Fail to reject null hypothesis: More components do not significantly improve performance.,No significant difference
+IndianPines,PCA-Split,li,8 vs 15,0.2652730936287392,No significant difference based on T-test,,,,
+IndianPines,PCA-Split,li,8 vs 30,0.17375511127324278,No significant difference based on T-test,,,,
+IndianPines,PCA-Split,li,15 vs 30,0.30436561633506903,No significant difference based on T-test,,,,
+IndianPines,PCA-Split,li,,,,0.13906507714209992,0.8705207101632503,Fail to reject null hypothesis: More components do not significantly improve performance.,No significant difference
+IndianPines,PCA-Split,mou,8 vs 15,0.00012877177017296709,More components (15) improve performance,,,,
+IndianPines,PCA-Split,mou,8 vs 30,0.011138569437004385,More components (30) improve performance,,,,
+IndianPines,PCA-Split,mou,15 vs 30,0.22105541523405414,No significant difference based on T-test,,,,
+IndianPines,PCA-Split,mou,,,,0.9968114143733203,0.37656423663609306,Fail to reject null hypothesis: More components do not significantly improve performance.,No significant difference
+IndianPines,PCA-Split,paoletti,8 vs 15,0.424444268378006,No significant difference based on T-test,,,,
+IndianPines,PCA-Split,paoletti,8 vs 30,0.42694081992401034,No significant difference based on T-test,,,,
+IndianPines,PCA-Split,paoletti,15 vs 30,0.7986357207971932,No significant difference based on T-test,,,,
+IndianPines,PCA-Split,paoletti,,,,0.03285610359843913,0.9676995384707626,Fail to reject null hypothesis: More components do not significantly improve performance.,No significant difference
+IndianPines,UMAP,hamida,8 vs 15,0.024488999645280837,More components (15) improve performance,,,,
+IndianPines,UMAP,hamida,8 vs 30,0.0185815229294477,More components (30) improve performance,,,,
+IndianPines,UMAP,hamida,15 vs 30,0.040936079797129876,More components (30) improve performance,,,,
+IndianPines,UMAP,hamida,,,,0.06388394005632803,0.9381934950812585,Fail to reject null hypothesis: More components do not significantly improve performance.,No significant difference
+IndianPines,UMAP,li,8 vs 15,0.17369457995329599,No significant difference based on T-test,,,,
+IndianPines,UMAP,li,8 vs 30,0.0631352289376335,No significant difference based on T-test,,,,
+IndianPines,UMAP,li,15 vs 30,0.1642893514322932,No significant difference based on T-test,,,,
+IndianPines,UMAP,li,,,,0.0016776153166927405,0.9983238496254832,Fail to reject null hypothesis: More components do not significantly improve performance.,No significant difference
+IndianPines,UMAP,mou,8 vs 15,0.0002610593697055833,More components (15) improve performance,,,,
+IndianPines,UMAP,mou,8 vs 30,8.33097900075681e-05,More components (30) improve performance,,,,
+IndianPines,UMAP,mou,15 vs 30,0.2581189649768314,No significant difference based on T-test,,,,
+IndianPines,UMAP,mou,,,,3.220540613151703,0.04870212275749665,Reject null hypothesis: More components significantly affect performance!,Significant difference detected
+IndianPines,UMAP,paoletti,8 vs 15,0.14473399888663777,No significant difference based on T-test,,,,
+IndianPines,UMAP,paoletti,8 vs 30,0.09373096753670078,No significant difference based on T-test,,,,
+IndianPines,UMAP,paoletti,15 vs 30,0.7129913586290364,No significant difference based on T-test,,,,
+IndianPines,UMAP,paoletti,,,,0.07118759790638418,0.9313853014726765,Fail to reject null hypothesis: More components do not significantly improve performance.,No significant difference
+IndianPines,UMAP-Split,hamida,8 vs 15,0.011030576040489406,More components (15) improve performance,,,,
+IndianPines,UMAP-Split,hamida,8 vs 30,0.004407436107604347,More components (30) improve performance,,,,
+IndianPines,UMAP-Split,hamida,15 vs 30,0.6552311646224718,No significant difference based on T-test,,,,
+IndianPines,UMAP-Split,hamida,,,,0.0011458021332244953,0.9988548813665109,Fail to reject null hypothesis: More components do not significantly improve performance.,No significant difference
+IndianPines,UMAP-Split,li,8 vs 15,0.001307075450911946,More components (15) improve performance,,,,
+IndianPines,UMAP-Split,li,8 vs 30,0.0023567295785454703,More components (30) improve performance,,,,
+IndianPines,UMAP-Split,li,15 vs 30,0.0829329914680272,No significant difference based on T-test,,,,
+IndianPines,UMAP-Split,li,,,,0.005033214723401016,0.9949799557303042,Fail to reject null hypothesis: More components do not significantly improve performance.,No significant difference
+IndianPines,UMAP-Split,mou,8 vs 15,0.49196036394350595,No significant difference based on T-test,,,,
+IndianPines,UMAP-Split,mou,8 vs 30,0.05038522897229595,No significant difference based on T-test,,,,
+IndianPines,UMAP-Split,mou,15 vs 30,0.00296751989446329,More components (30) improve performance,,,,
+IndianPines,UMAP-Split,mou,,,,0.2962433123838673,0.7449561775752385,Fail to reject null hypothesis: More components do not significantly improve performance.,No significant difference
+IndianPines,UMAP-Split,paoletti,8 vs 15,0.014414176408680075,More components (15) improve performance,,,,
+IndianPines,UMAP-Split,paoletti,8 vs 30,0.0002331831668178467,More components (30) improve performance,,,,
+IndianPines,UMAP-Split,paoletti,15 vs 30,0.06870512905479191,No significant difference based on T-test,,,,
+IndianPines,UMAP-Split,paoletti,,,,0.19985530536828686,0.81952713612899,Fail to reject null hypothesis: More components do not significantly improve performance.,No significant difference
+Salinas,AE1,hamida,8 vs 15,0.008318920523515363,More components (15) improve performance,,,,
+Salinas,AE1,hamida,8 vs 30,0.006283236306110023,More components (30) improve performance,,,,
+Salinas,AE1,hamida,15 vs 30,0.06726257832409491,No significant difference based on T-test,,,,
+Salinas,AE1,hamida,,,,0.04853587730027656,0.9526698519415898,Fail to reject null hypothesis: More components do not significantly improve performance.,No significant difference
+Salinas,AE1,li,8 vs 15,0.004828479983412698,More components (15) improve performance,,,,
+Salinas,AE1,li,8 vs 30,0.11073755818743461,No significant difference based on T-test,,,,
+Salinas,AE1,li,15 vs 30,0.5846184589786015,No significant difference based on T-test,,,,
+Salinas,AE1,li,,,,0.000601332992533557,0.999398855300622,Fail to reject null hypothesis: More components do not significantly improve performance.,No significant difference
+Salinas,AE1,mou,8 vs 15,0.013921894786118025,More components (15) improve performance,,,,
+Salinas,AE1,mou,8 vs 30,0.011279677331408259,More components (30) improve performance,,,,
+Salinas,AE1,mou,15 vs 30,0.639123619096138,No significant difference based on T-test,,,,
+Salinas,AE1,mou,,,,0.02966062337852125,0.970792714021105,Fail to reject null hypothesis: More components do not significantly improve performance.,No significant difference
+Salinas,AE1,paoletti,8 vs 15,0.0012681884611015976,More components (15) improve performance,,,,
+Salinas,AE1,paoletti,8 vs 30,0.0022670016406873663,More components (30) improve performance,,,,
+Salinas,AE1,paoletti,15 vs 30,0.22752176667221088,No significant difference based on T-test,,,,
+Salinas,AE1,paoletti,,,,0.13048732665565577,0.877977880047347,Fail to reject null hypothesis: More components do not significantly improve performance.,No significant difference
+Salinas,AE2,hamida,8 vs 15,0.0038401718290185147,More components (15) improve performance,,,,
+Salinas,AE2,hamida,8 vs 30,0.006707439212592384,More components (30) improve performance,,,,
+Salinas,AE2,hamida,15 vs 30,0.08350298580187643,No significant difference based on T-test,,,,
+Salinas,AE2,hamida,,,,0.07815249470984348,0.9249408178830392,Fail to reject null hypothesis: More components do not significantly improve performance.,No significant difference
+Salinas,AE2,li,8 vs 15,0.08145562577929778,No significant difference based on T-test,,,,
+Salinas,AE2,li,8 vs 30,0.09912003195339741,No significant difference based on T-test,,,,
+Salinas,AE2,li,15 vs 30,0.047788550932764615,Fewer components (15) improve performance,,,,
+Salinas,AE2,li,,,,0.018940421680410425,0.9812451506906146,Fail to reject null hypothesis: More components do not significantly improve performance.,No significant difference
+Salinas,AE2,mou,8 vs 15,0.0028340323038913307,More components (15) improve performance,,,,
+Salinas,AE2,mou,8 vs 30,0.0018183283359298264,More components (30) improve performance,,,,
+Salinas,AE2,mou,15 vs 30,0.06314524720409921,No significant difference based on T-test,,,,
+Salinas,AE2,mou,,,,0.15400205582504162,0.857692133333927,Fail to reject null hypothesis: More components do not significantly improve performance.,No significant difference
+Salinas,AE2,paoletti,8 vs 15,0.01102608350508333,More components (15) improve performance,,,,
+Salinas,AE2,paoletti,8 vs 30,0.003482924972907103,More components (30) improve performance,,,,
+Salinas,AE2,paoletti,15 vs 30,0.01052781476467988,More components (30) improve performance,,,,
+Salinas,AE2,paoletti,,,,0.1945012838760025,0.8238907228856915,Fail to reject null hypothesis: More components do not significantly improve performance.,No significant difference
+Salinas,FastICA,hamida,8 vs 15,0.00038377746246657396,Fewer components (8) improve performance,,,,
+Salinas,FastICA,hamida,8 vs 30,0.18799918424399029,No significant difference based on T-test,,,,
+Salinas,FastICA,hamida,15 vs 30,0.0006895357511561206,More components (30) improve performance,,,,
+Salinas,FastICA,hamida,,,,0.8952639384885898,0.41521034065693174,Fail to reject null hypothesis: More components do not significantly improve performance.,No significant difference
+Salinas,FastICA,li,8 vs 15,7.075207580695689e-11,Fewer components (8) improve performance,,,,
+Salinas,FastICA,li,8 vs 30,0.02809798269831187,Fewer components (8) improve performance,,,,
+Salinas,FastICA,li,15 vs 30,1.1108877120574637e-10,More components (30) improve performance,,,,
+Salinas,FastICA,li,,,,113.65739279920331,6.221295708860815e-19,Reject null hypothesis: More components significantly affect performance!,Significant difference detected
+Salinas,FastICA,mou,8 vs 15,0.14012341384911658,No significant difference based on T-test,,,,
+Salinas,FastICA,mou,8 vs 30,0.5131643246183609,No significant difference based on T-test,,,,
+Salinas,FastICA,mou,15 vs 30,0.02907528678945061,More components (30) improve performance,,,,
+Salinas,FastICA,mou,,,,0.008634161695934684,0.9914045450106123,Fail to reject null hypothesis: More components do not significantly improve performance.,No significant difference
+Salinas,FastICA,paoletti,8 vs 15,0.07275039388601211,No significant difference based on T-test,,,,
+Salinas,FastICA,paoletti,8 vs 30,0.7975951744236389,No significant difference based on T-test,,,,
+Salinas,FastICA,paoletti,15 vs 30,0.005907156176025513,Fewer components (15) improve performance,,,,
+Salinas,FastICA,paoletti,,,,0.025018959522750284,0.9753041304198405,Fail to reject null hypothesis: More components do not significantly improve performance.,No significant difference
+Salinas,FastICA-Split,hamida,8 vs 15,0.898004506100186,No significant difference based on T-test,,,,
+Salinas,FastICA-Split,hamida,8 vs 30,0.003972807974301246,More components (30) improve performance,,,,
+Salinas,FastICA-Split,hamida,15 vs 30,0.045987955543933465,More components (30) improve performance,,,,
+Salinas,FastICA-Split,hamida,,,,0.007835768539015754,0.9921961199591313,Fail to reject null hypothesis: More components do not significantly improve performance.,No significant difference
+Salinas,FastICA-Split,li,8 vs 15,0.08054492165092955,No significant difference based on T-test,,,,
+Salinas,FastICA-Split,li,8 vs 30,0.3669378710095198,No significant difference based on T-test,,,,
+Salinas,FastICA-Split,li,15 vs 30,0.5683175887556975,No significant difference based on T-test,,,,
+Salinas,FastICA-Split,li,,,,0.0007821649054278616,0.9992181536410214,Fail to reject null hypothesis: More components do not significantly improve performance.,No significant difference
+Salinas,FastICA-Split,mou,8 vs 15,0.3440833456018544,No significant difference based on T-test,,,,
+Salinas,FastICA-Split,mou,8 vs 30,0.07635328463413578,No significant difference based on T-test,,,,
+Salinas,FastICA-Split,mou,15 vs 30,0.1255135920048315,No significant difference based on T-test,,,,
+Salinas,FastICA-Split,mou,,,,0.018937325667648164,0.981248186247409,Fail to reject null hypothesis: More components do not significantly improve performance.,No significant difference
+Salinas,FastICA-Split,paoletti,8 vs 15,0.25381854856328795,No significant difference based on T-test,,,,
+Salinas,FastICA-Split,paoletti,8 vs 30,0.180940329367638,No significant difference based on T-test,,,,
+Salinas,FastICA-Split,paoletti,15 vs 30,0.33692673938369133,No significant difference based on T-test,,,,
+Salinas,FastICA-Split,paoletti,,,,0.008363103214716524,0.9916732148932297,Fail to reject null hypothesis: More components do not significantly improve performance.,No significant difference
+Salinas,PCA,hamida,8 vs 15,0.9806746852841226,No significant difference based on T-test,,,,
+Salinas,PCA,hamida,8 vs 30,0.1588117415296948,No significant difference based on T-test,,,,
+Salinas,PCA,hamida,15 vs 30,0.07968785605281688,No significant difference based on T-test,,,,
+Salinas,PCA,hamida,,,,0.0157648631914189,0.984363846344117,Fail to reject null hypothesis: More components do not significantly improve performance.,No significant difference
+Salinas,PCA,li,8 vs 15,0.04035978658022526,Fewer components (8) improve performance,,,,
+Salinas,PCA,li,8 vs 30,0.14368549123958813,No significant difference based on T-test,,,,
+Salinas,PCA,li,15 vs 30,0.0866427759499155,No significant difference based on T-test,,,,
+Salinas,PCA,li,,,,0.01392725025124372,0.9861732688042321,Fail to reject null hypothesis: More components do not significantly improve performance.,No significant difference
+Salinas,PCA,mou,8 vs 15,0.0003524576739016384,Fewer components (8) improve performance,,,,
+Salinas,PCA,mou,8 vs 30,0.023614277622599503,Fewer components (8) improve performance,,,,
+Salinas,PCA,mou,15 vs 30,0.0009123615901152729,More components (30) improve performance,,,,
+Salinas,PCA,mou,,,,0.9706528694239444,0.3861466443186934,Fail to reject null hypothesis: More components do not significantly improve performance.,No significant difference
+Salinas,PCA,paoletti,8 vs 15,0.0008420310750069015,Fewer components (8) improve performance,,,,
+Salinas,PCA,paoletti,8 vs 30,0.0038038692380683663,Fewer components (8) improve performance,,,,
+Salinas,PCA,paoletti,15 vs 30,0.00232525593848933,More components (30) improve performance,,,,
+Salinas,PCA,paoletti,,,,0.49966229028077797,0.6098562087872381,Fail to reject null hypothesis: More components do not significantly improve performance.,No significant difference
+Salinas,PCA-Split,hamida,8 vs 15,0.0050238108093896465,More components (15) improve performance,,,,
+Salinas,PCA-Split,hamida,8 vs 30,0.09605763066112241,No significant difference based on T-test,,,,
+Salinas,PCA-Split,hamida,15 vs 30,0.7132331014996464,No significant difference based on T-test,,,,
+Salinas,PCA-Split,hamida,,,,0.02743824132390236,0.9729500163773064,Fail to reject null hypothesis: More components do not significantly improve performance.,No significant difference
+Salinas,PCA-Split,li,8 vs 15,0.4225331664114236,No significant difference based on T-test,,,,
+Salinas,PCA-Split,li,8 vs 30,0.03277538311424253,More components (30) improve performance,,,,
+Salinas,PCA-Split,li,15 vs 30,0.03480061199259213,More components (30) improve performance,,,,
+Salinas,PCA-Split,li,,,,0.003280355448402196,0.996725242466571,Fail to reject null hypothesis: More components do not significantly improve performance.,No significant difference
+Salinas,PCA-Split,mou,8 vs 15,0.3157249058839067,No significant difference based on T-test,,,,
+Salinas,PCA-Split,mou,8 vs 30,0.4466715311389884,No significant difference based on T-test,,,,
+Salinas,PCA-Split,mou,15 vs 30,0.04132993432709719,More components (30) improve performance,,,,
+Salinas,PCA-Split,mou,,,,0.0017272486800968545,0.9982743041991106,Fail to reject null hypothesis: More components do not significantly improve performance.,No significant difference
+Salinas,PCA-Split,paoletti,8 vs 15,0.15193452345141428,No significant difference based on T-test,,,,
+Salinas,PCA-Split,paoletti,8 vs 30,0.13131694278238357,No significant difference based on T-test,,,,
+Salinas,PCA-Split,paoletti,15 vs 30,0.9618991847319687,No significant difference based on T-test,,,,
+Salinas,PCA-Split,paoletti,,,,0.0011920378662395174,0.9988087018956449,Fail to reject null hypothesis: More components do not significantly improve performance.,No significant difference
+Salinas,UMAP,hamida,8 vs 15,0.0523096228510515,No significant difference based on T-test,,,,
+Salinas,UMAP,hamida,8 vs 30,0.033276744463267054,More components (30) improve performance,,,,
+Salinas,UMAP,hamida,15 vs 30,0.09390670447601179,No significant difference based on T-test,,,,
+Salinas,UMAP,hamida,,,,0.0031486344820196403,0.9968565231413675,Fail to reject null hypothesis: More components do not significantly improve performance.,No significant difference
+Salinas,UMAP,li,8 vs 15,0.6743917902446197,No significant difference based on T-test,,,,
+Salinas,UMAP,li,8 vs 30,0.07701623368064955,No significant difference based on T-test,,,,
+Salinas,UMAP,li,15 vs 30,0.13978608790845548,No significant difference based on T-test,,,,
+Salinas,UMAP,li,,,,0.003250308078054444,0.9967551878147254,Fail to reject null hypothesis: More components do not significantly improve performance.,No significant difference
+Salinas,UMAP,mou,8 vs 15,0.4331139723756332,No significant difference based on T-test,,,,
+Salinas,UMAP,mou,8 vs 30,0.11187422445637983,No significant difference based on T-test,,,,
+Salinas,UMAP,mou,15 vs 30,0.16747748776824886,No significant difference based on T-test,,,,
+Salinas,UMAP,mou,,,,0.002354012479797744,0.9976488712011221,Fail to reject null hypothesis: More components do not significantly improve performance.,No significant difference
+Salinas,UMAP,paoletti,8 vs 15,0.13634170079326344,No significant difference based on T-test,,,,
+Salinas,UMAP,paoletti,8 vs 30,0.16401393178494245,No significant difference based on T-test,,,,
+Salinas,UMAP,paoletti,15 vs 30,0.21168968565441196,No significant difference based on T-test,,,,
+Salinas,UMAP,paoletti,,,,0.003475899769471468,0.9965303849852226,Fail to reject null hypothesis: More components do not significantly improve performance.,No significant difference
+Salinas,UMAP-Split,hamida,8 vs 15,0.009813673584058909,More components (15) improve performance,,,,
+Salinas,UMAP-Split,hamida,8 vs 30,0.018856580598383264,More components (30) improve performance,,,,
+Salinas,UMAP-Split,hamida,15 vs 30,0.08055192686825521,No significant difference based on T-test,,,,
+Salinas,UMAP-Split,hamida,,,,0.03496460252805102,0.9656641674098925,Fail to reject null hypothesis: More components do not significantly improve performance.,No significant difference
+Salinas,UMAP-Split,li,8 vs 15,0.06330437276863586,No significant difference based on T-test,,,,
+Salinas,UMAP-Split,li,8 vs 30,0.09835886853361811,No significant difference based on T-test,,,,
+Salinas,UMAP-Split,li,15 vs 30,0.14976908348323523,No significant difference based on T-test,,,,
+Salinas,UMAP-Split,li,,,,0.024511221183265434,0.975798944738626,Fail to reject null hypothesis: More components do not significantly improve performance.,No significant difference
+Salinas,UMAP-Split,mou,8 vs 15,0.0005969234521869236,More components (15) improve performance,,,,
+Salinas,UMAP-Split,mou,8 vs 30,0.004229594866866368,More components (30) improve performance,,,,
+Salinas,UMAP-Split,mou,15 vs 30,0.04130494419981419,More components (30) improve performance,,,,
+Salinas,UMAP-Split,mou,,,,0.02154341044426615,0.9786964487541726,Fail to reject null hypothesis: More components do not significantly improve performance.,No significant difference
+Salinas,UMAP-Split,paoletti,8 vs 15,0.0648823349622749,No significant difference based on T-test,,,,
+Salinas,UMAP-Split,paoletti,8 vs 30,0.0226649224986986,More components (30) improve performance,,,,
+Salinas,UMAP-Split,paoletti,15 vs 30,0.14048976018707268,No significant difference based on T-test,,,,
+Salinas,UMAP-Split,paoletti,,,,0.012114236146911928,0.9879618653674519,Fail to reject null hypothesis: More components do not significantly improve performance.,No significant difference

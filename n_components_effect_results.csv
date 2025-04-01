@@ -1,0 +1,65 @@
+Dataset,DR Method,Model,F-statistic,P-value,Trend
+IndianPines,AE1,hamida,2.1369634645813873,0.12910607022884596,No significant difference
+IndianPines,AE1,li,0.20416855692011773,0.8160293001867813,No significant difference
+IndianPines,AE1,mou,0.09573657085306339,0.9088764347563707,No significant difference
+IndianPines,AE1,paoletti,0.614138865521316,0.545303502080349,No significant difference
+IndianPines,AE2,hamida,0.47707272895421277,0.6235084197563807,No significant difference
+IndianPines,AE2,li,0.022035006767904243,0.9782158796115578,No significant difference
+IndianPines,AE2,mou,5.1300482399540295,0.009569316286523383,No clear trend based on mean performance
+IndianPines,AE2,paoletti,2.105250185808197,0.13292331618219513,No significant difference
+IndianPines,FastICA,hamida,0.005605975624051558,0.9944103595023857,No significant difference
+IndianPines,FastICA,li,114.59724446430265,5.283959737235504e-19,Fewer components (8) improve performance
+IndianPines,FastICA,mou,0.47735226839946654,0.6233375460701163,No significant difference
+IndianPines,FastICA,paoletti,0.32347242211031413,0.7251970051965214,No significant difference
+IndianPines,FastICA-Split,hamida,0.04411259390106789,0.956884960241592,No significant difference
+IndianPines,FastICA-Split,li,0.03174021168575865,0.9687785364020061,No significant difference
+IndianPines,FastICA-Split,mou,0.7517852961462121,0.47699420270318327,No significant difference
+IndianPines,FastICA-Split,paoletti,0.08989603375522888,0.9141797236746676,No significant difference
+IndianPines,PCA,hamida,0.00028471305899785117,0.9997153291562049,No significant difference
+IndianPines,PCA,li,5.3322055411332565,0.008105812076695966,Fewer components (8) improve performance
+IndianPines,PCA,mou,0.3279125722531519,0.7220270817198633,No significant difference
+IndianPines,PCA,paoletti,1.367738639534287,0.2644281530263884,No significant difference
+IndianPines,PCA-Split,hamida,0.08104771707593018,0.9222756082033445,No significant difference
+IndianPines,PCA-Split,li,0.13906507714209992,0.8705207101632503,No significant difference
+IndianPines,PCA-Split,mou,0.9968114143733203,0.37656423663609306,No significant difference
+IndianPines,PCA-Split,paoletti,0.03285610359843913,0.9676995384707626,No significant difference
+IndianPines,UMAP,hamida,0.06388394005632803,0.9381934950812585,No significant difference
+IndianPines,UMAP,li,0.0016776153166927405,0.9983238496254832,No significant difference
+IndianPines,UMAP,mou,3.220540613151703,0.04870212275749665,More components (30) improve performance
+IndianPines,UMAP,paoletti,0.07118759790638418,0.9313853014726765,No significant difference
+IndianPines,UMAP-Split,hamida,0.0011458021332244953,0.9988548813665109,No significant difference
+IndianPines,UMAP-Split,li,0.005033214723401016,0.9949799557303042,No significant difference
+IndianPines,UMAP-Split,mou,0.2962433123838673,0.7449561775752385,No significant difference
+IndianPines,UMAP-Split,paoletti,0.19985530536828686,0.81952713612899,No significant difference
+Salinas,AE1,hamida,0.04853587730027656,0.9526698519415898,No significant difference
+Salinas,AE1,li,0.000601332992533557,0.999398855300622,No significant difference
+Salinas,AE1,mou,0.02966062337852125,0.970792714021105,No significant difference
+Salinas,AE1,paoletti,0.13048732665565577,0.877977880047347,No significant difference
+Salinas,AE2,hamida,0.07815249470984348,0.9249408178830392,No significant difference
+Salinas,AE2,li,0.018940421680410425,0.9812451506906146,No significant difference
+Salinas,AE2,mou,0.15400205582504162,0.857692133333927,No significant difference
+Salinas,AE2,paoletti,0.1945012838760025,0.8238907228856915,No significant difference
+Salinas,FastICA,hamida,0.8952639384885898,0.41521034065693174,No significant difference
+Salinas,FastICA,li,113.65739279920331,6.221295708860815e-19,No clear trend based on mean performance
+Salinas,FastICA,mou,0.008634161695934684,0.9914045450106123,No significant difference
+Salinas,FastICA,paoletti,0.025018959522750284,0.9753041304198405,No significant difference
+Salinas,FastICA-Split,hamida,0.007835768539015754,0.9921961199591313,No significant difference
+Salinas,FastICA-Split,li,0.0007821649054278616,0.9992181536410214,No significant difference
+Salinas,FastICA-Split,mou,0.018937325667648164,0.981248186247409,No significant difference
+Salinas,FastICA-Split,paoletti,0.008363103214716524,0.9916732148932297,No significant difference
+Salinas,PCA,hamida,0.0157648631914189,0.984363846344117,No significant difference
+Salinas,PCA,li,0.01392725025124372,0.9861732688042321,No significant difference
+Salinas,PCA,mou,0.9706528694239444,0.3861466443186934,No significant difference
+Salinas,PCA,paoletti,0.49966229028077797,0.6098562087872381,No significant difference
+Salinas,PCA-Split,hamida,0.02743824132390236,0.9729500163773064,No significant difference
+Salinas,PCA-Split,li,0.003280355448402196,0.996725242466571,No significant difference
+Salinas,PCA-Split,mou,0.0017272486800968545,0.9982743041991106,No significant difference
+Salinas,PCA-Split,paoletti,0.0011920378662395174,0.9988087018956449,No significant difference
+Salinas,UMAP,hamida,0.0031486344820196403,0.9968565231413675,No significant difference
+Salinas,UMAP,li,0.003250308078054444,0.9967551878147254,No significant difference
+Salinas,UMAP,mou,0.002354012479797744,0.9976488712011221,No significant difference
+Salinas,UMAP,paoletti,0.003475899769471468,0.9965303849852226,No significant difference
+Salinas,UMAP-Split,hamida,0.03496460252805102,0.9656641674098925,No significant difference
+Salinas,UMAP-Split,li,0.024511221183265434,0.975798944738626,No significant difference
+Salinas,UMAP-Split,mou,0.02154341044426615,0.9786964487541726,No significant difference
+Salinas,UMAP-Split,paoletti,0.012114236146911928,0.9879618653674519,No significant difference

@@ -1,0 +1,193 @@
+Dataset,DR Method,N Components,Architecture Group,T-Test Comparison,T-Test P-value,Trend (T-Test),F-statistic (ANOVA),P-value (ANOVA),ANOVA Result,Trend (ANOVA)
+IndianPines,AE1,8,CNNs,li vs hamida,0.0003377329643183756,Shallow architecture (li) improves performance,,,,
+IndianPines,AE1,8,CNNs,,,,3.5189819876193345,0.06981754502123952,Fail to reject null hypothesis: Deeper architectures do not significantly improve performance.,No significant difference
+IndianPines,AE1,15,CNNs,li vs hamida,0.020596665585047472,Shallow architecture (li) improves performance,,,,
+IndianPines,AE1,15,CNNs,,,,0.09695826458522669,0.7575304251540129,Fail to reject null hypothesis: Deeper architectures do not significantly improve performance.,No significant difference
+IndianPines,AE1,30,CNNs,li vs hamida,0.09227102216792007,No significant difference based on T-test,,,,
+IndianPines,AE1,30,CNNs,,,,0.022256863714834006,0.882342069151061,Fail to reject null hypothesis: Deeper architectures do not significantly improve performance.,No significant difference
+IndianPines,AE2,8,CNNs,li vs hamida,0.0004054541821378131,Shallow architecture (li) improves performance,,,,
+IndianPines,AE2,8,CNNs,,,,0.7577472350669148,0.3905179512243816,Fail to reject null hypothesis: Deeper architectures do not significantly improve performance.,No significant difference
+IndianPines,AE2,15,CNNs,li vs hamida,0.01509872506626578,Shallow architecture (li) improves performance,,,,
+IndianPines,AE2,15,CNNs,,,,0.16799480549375798,0.6846311203652484,Fail to reject null hypothesis: Deeper architectures do not significantly improve performance.,No significant difference
+IndianPines,AE2,30,CNNs,li vs hamida,0.2763461255375833,No significant difference based on T-test,,,,
+IndianPines,AE2,30,CNNs,,,,0.007710516781875467,0.930575264991955,Fail to reject null hypothesis: Deeper architectures do not significantly improve performance.,No significant difference
+IndianPines,FastICA,8,CNNs,li vs hamida,0.05452024498608871,No significant difference based on T-test,,,,
+IndianPines,FastICA,8,CNNs,,,,0.004795635257196473,0.9452211479893983,Fail to reject null hypothesis: Deeper architectures do not significantly improve performance.,No significant difference
+IndianPines,FastICA,15,CNNs,li vs hamida,0.008143060677091214,Deeper architecture (hamida) improves performance,,,,
+IndianPines,FastICA,15,CNNs,,,,0.014906740792491855,0.9035887690320225,Fail to reject null hypothesis: Deeper architectures do not significantly improve performance.,No significant difference
+IndianPines,FastICA,30,CNNs,li vs hamida,6.488491185798087e-11,Deeper architecture (hamida) improves performance,,,,
+IndianPines,FastICA,30,CNNs,,,,223.72169741837962,5.386558841874416e-16,Reject null hypothesis: Deeper architectures significantly improve performance!,Significant difference detected
+IndianPines,FastICA-Split,8,CNNs,li vs hamida,0.49168401759223734,No significant difference based on T-test,,,,
+IndianPines,FastICA-Split,8,CNNs,,,,0.004524467198745316,0.9467899333613603,Fail to reject null hypothesis: Deeper architectures do not significantly improve performance.,No significant difference
+IndianPines,FastICA-Split,15,CNNs,li vs hamida,0.1385079307952181,No significant difference based on T-test,,,,
+IndianPines,FastICA-Split,15,CNNs,,,,0.02069642572346001,0.8865112047855206,Fail to reject null hypothesis: Deeper architectures do not significantly improve performance.,No significant difference
+IndianPines,FastICA-Split,30,CNNs,li vs hamida,0.0071297936429749464,Deeper architecture (hamida) improves performance,,,,
+IndianPines,FastICA-Split,30,CNNs,,,,0.015749207434024227,0.9009161450989976,Fail to reject null hypothesis: Deeper architectures do not significantly improve performance.,No significant difference
+IndianPines,PCA,8,CNNs,li vs hamida,0.05584799286259194,No significant difference based on T-test,,,,
+IndianPines,PCA,8,CNNs,,,,0.0029246490415231426,0.9572076331716575,Fail to reject null hypothesis: Deeper architectures do not significantly improve performance.,No significant difference
+IndianPines,PCA,15,CNNs,li vs hamida,0.0008228267438138063,Deeper architecture (hamida) improves performance,,,,
+IndianPines,PCA,15,CNNs,,,,0.6829100610941129,0.41470584177963543,Fail to reject null hypothesis: Deeper architectures do not significantly improve performance.,No significant difference
+IndianPines,PCA,30,CNNs,li vs hamida,7.155140800661929e-05,Deeper architecture (hamida) improves performance,,,,
+IndianPines,PCA,30,CNNs,,,,9.230451846956539,0.0047112453489048444,Reject null hypothesis: Deeper architectures significantly improve performance!,Significant difference detected
+IndianPines,PCA-Split,8,CNNs,li vs hamida,0.06858928212397397,No significant difference based on T-test,,,,
+IndianPines,PCA-Split,8,CNNs,,,,0.2850899161224175,0.5970743257971995,Fail to reject null hypothesis: Deeper architectures do not significantly improve performance.,No significant difference
+IndianPines,PCA-Split,15,CNNs,li vs hamida,0.0010513968220961492,Deeper architecture (hamida) improves performance,,,,
+IndianPines,PCA-Split,15,CNNs,,,,0.23575953133408784,0.6305937776711523,Fail to reject null hypothesis: Deeper architectures do not significantly improve performance.,No significant difference
+IndianPines,PCA-Split,30,CNNs,li vs hamida,0.005365304401167942,Deeper architecture (hamida) improves performance,,,,
+IndianPines,PCA-Split,30,CNNs,,,,0.1575301441135045,0.694075493323794,Fail to reject null hypothesis: Deeper architectures do not significantly improve performance.,No significant difference
+IndianPines,UMAP,8,CNNs,li vs hamida,0.05777630758211451,No significant difference based on T-test,,,,
+IndianPines,UMAP,8,CNNs,,,,0.07755737621070918,0.7824270244427046,Fail to reject null hypothesis: Deeper architectures do not significantly improve performance.,No significant difference
+IndianPines,UMAP,15,CNNs,li vs hamida,0.18491345393921896,No significant difference based on T-test,,,,
+IndianPines,UMAP,15,CNNs,,,,0.0003126372203687163,0.9860026864318767,Fail to reject null hypothesis: Deeper architectures do not significantly improve performance.,No significant difference
+IndianPines,UMAP,30,CNNs,li vs hamida,0.056619269213388494,No significant difference based on T-test,,,,
+IndianPines,UMAP,30,CNNs,,,,0.0002424365426620716,0.9876738164016472,Fail to reject null hypothesis: Deeper architectures do not significantly improve performance.,No significant difference
+IndianPines,UMAP-Split,8,CNNs,li vs hamida,0.031208507231946177,Deeper architecture (hamida) improves performance,,,,
+IndianPines,UMAP-Split,8,CNNs,,,,0.0013453891080871159,0.9709683829870233,Fail to reject null hypothesis: Deeper architectures do not significantly improve performance.,No significant difference
+IndianPines,UMAP-Split,15,CNNs,li vs hamida,0.228956210687463,No significant difference based on T-test,,,,
+IndianPines,UMAP-Split,15,CNNs,,,,2.3684243251734743e-05,0.996147207001607,Fail to reject null hypothesis: Deeper architectures do not significantly improve performance.,No significant difference
+IndianPines,UMAP-Split,30,CNNs,li vs hamida,0.137378630789005,No significant difference based on T-test,,,,
+IndianPines,UMAP-Split,30,CNNs,,,,0.00014154680501469522,0.990581382559637,Fail to reject null hypothesis: Deeper architectures do not significantly improve performance.,No significant difference
+Salinas,AE1,8,CNNs,li vs hamida,0.01150130918731771,Shallow architecture (li) improves performance,,,,
+Salinas,AE1,8,CNNs,,,,0.13393942778912934,0.7167904176966828,Fail to reject null hypothesis: Deeper architectures do not significantly improve performance.,No significant difference
+Salinas,AE1,15,CNNs,li vs hamida,0.027351326753439306,Shallow architecture (li) improves performance,,,,
+Salinas,AE1,15,CNNs,,,,0.017840343476961864,0.8945808606279232,Fail to reject null hypothesis: Deeper architectures do not significantly improve performance.,No significant difference
+Salinas,AE1,30,CNNs,li vs hamida,0.1065948596005853,No significant difference based on T-test,,,,
+Salinas,AE1,30,CNNs,,,,0.014052675546642949,0.9063776808996794,Fail to reject null hypothesis: Deeper architectures do not significantly improve performance.,No significant difference
+Salinas,AE2,8,CNNs,li vs hamida,0.00042335511169625233,Shallow architecture (li) improves performance,,,,
+Salinas,AE2,8,CNNs,,,,0.04925647246540471,0.8257724885797401,Fail to reject null hypothesis: Deeper architectures do not significantly improve performance.,No significant difference
+Salinas,AE2,15,CNNs,li vs hamida,0.047261763940447524,Shallow architecture (li) improves performance,,,,
+Salinas,AE2,15,CNNs,,,,0.010907947831425416,0.9174711696309575,Fail to reject null hypothesis: Deeper architectures do not significantly improve performance.,No significant difference
+Salinas,AE2,30,CNNs,li vs hamida,0.31839574383492736,No significant difference based on T-test,,,,
+Salinas,AE2,30,CNNs,,,,7.5523043850973e-05,0.9931201052755593,Fail to reject null hypothesis: Deeper architectures do not significantly improve performance.,No significant difference
+Salinas,FastICA,8,CNNs,li vs hamida,0.061804804756348766,No significant difference based on T-test,,,,
+Salinas,FastICA,8,CNNs,,,,0.005640267975066052,0.9406013290372075,Fail to reject null hypothesis: Deeper architectures do not significantly improve performance.,No significant difference
+Salinas,FastICA,15,CNNs,li vs hamida,6.40652603871537e-10,Deeper architecture (hamida) improves performance,,,,
+Salinas,FastICA,15,CNNs,,,,180.36940939179948,1.0669064828364693e-14,Reject null hypothesis: Deeper architectures significantly improve performance!,Significant difference detected
+Salinas,FastICA,30,CNNs,li vs hamida,0.06820465786092852,No significant difference based on T-test,,,,
+Salinas,FastICA,30,CNNs,,,,0.043789077665570025,0.8355729996922473,Fail to reject null hypothesis: Deeper architectures do not significantly improve performance.,No significant difference
+Salinas,FastICA-Split,8,CNNs,li vs hamida,0.0018355234912452232,Shallow architecture (li) improves performance,,,,
+Salinas,FastICA-Split,8,CNNs,,,,0.024898477970834713,0.8756118047789705,Fail to reject null hypothesis: Deeper architectures do not significantly improve performance.,No significant difference
+Salinas,FastICA-Split,15,CNNs,li vs hamida,0.03222768902780383,Shallow architecture (li) improves performance,,,,
+Salinas,FastICA-Split,15,CNNs,,,,0.03544121914635248,0.8518629003357812,Fail to reject null hypothesis: Deeper architectures do not significantly improve performance.,No significant difference
+Salinas,FastICA-Split,30,CNNs,li vs hamida,0.13150000430748643,No significant difference based on T-test,,,,
+Salinas,FastICA-Split,30,CNNs,,,,0.005656700141130338,0.9405150347794051,Fail to reject null hypothesis: Deeper architectures do not significantly improve performance.,No significant difference
+Salinas,PCA,8,CNNs,li vs hamida,0.1744752154362551,No significant difference based on T-test,,,,
+Salinas,PCA,8,CNNs,,,,0.006204504089453116,0.9377071331968582,Fail to reject null hypothesis: Deeper architectures do not significantly improve performance.,No significant difference
+Salinas,PCA,15,CNNs,li vs hamida,0.45493515320640654,No significant difference based on T-test,,,,
+Salinas,PCA,15,CNNs,,,,2.65588931772541e-05,0.9959200889848454,Fail to reject null hypothesis: Deeper architectures do not significantly improve performance.,No significant difference
+Salinas,PCA,30,CNNs,li vs hamida,0.13861826853972511,No significant difference based on T-test,,,,
+Salinas,PCA,30,CNNs,,,,0.0002937728927108793,0.986431506864038,Fail to reject null hypothesis: Deeper architectures do not significantly improve performance.,No significant difference
+Salinas,PCA-Split,8,CNNs,li vs hamida,0.004195279153806606,Shallow architecture (li) improves performance,,,,
+Salinas,PCA-Split,8,CNNs,,,,0.07826953374823833,0.781456821611449,Fail to reject null hypothesis: Deeper architectures do not significantly improve performance.,No significant difference
+Salinas,PCA-Split,15,CNNs,li vs hamida,0.11044099536427293,No significant difference based on T-test,,,,
+Salinas,PCA-Split,15,CNNs,,,,0.009286095837684177,0.9238321641694667,Fail to reject null hypothesis: Deeper architectures do not significantly improve performance.,No significant difference
+Salinas,PCA-Split,30,CNNs,li vs hamida,0.00545610279702091,Shallow architecture (li) improves performance,,,,
+Salinas,PCA-Split,30,CNNs,,,,0.028832718968782714,0.8662348048999116,Fail to reject null hypothesis: Deeper architectures do not significantly improve performance.,No significant difference
+Salinas,UMAP,8,CNNs,li vs hamida,0.07077551584301782,No significant difference based on T-test,,,,
+Salinas,UMAP,8,CNNs,,,,0.005672684992973418,0.9404312104971966,Fail to reject null hypothesis: Deeper architectures do not significantly improve performance.,No significant difference
+Salinas,UMAP,15,CNNs,li vs hamida,0.08669957914767175,No significant difference based on T-test,,,,
+Salinas,UMAP,15,CNNs,,,,0.0033219771418968,0.954396507411919,Fail to reject null hypothesis: Deeper architectures do not significantly improve performance.,No significant difference
+Salinas,UMAP,30,CNNs,li vs hamida,0.13477669667953054,No significant difference based on T-test,,,,
+Salinas,UMAP,30,CNNs,,,,0.004925130973736312,0.9444877171083037,Fail to reject null hypothesis: Deeper architectures do not significantly improve performance.,No significant difference
+Salinas,UMAP-Split,8,CNNs,li vs hamida,0.010756729487338076,Shallow architecture (li) improves performance,,,,
+Salinas,UMAP-Split,8,CNNs,,,,0.020629438493894932,0.8866937154548541,Fail to reject null hypothesis: Deeper architectures do not significantly improve performance.,No significant difference
+Salinas,UMAP-Split,15,CNNs,li vs hamida,0.07626129192760771,No significant difference based on T-test,,,,
+Salinas,UMAP-Split,15,CNNs,,,,0.01117093991074523,0.9164859731456523,Fail to reject null hypothesis: Deeper architectures do not significantly improve performance.,No significant difference
+Salinas,UMAP-Split,30,CNNs,li vs hamida,0.14645749094395624,No significant difference based on T-test,,,,
+Salinas,UMAP-Split,30,CNNs,,,,0.010480444038880543,0.9190986324012113,Fail to reject null hypothesis: Deeper architectures do not significantly improve performance.,No significant difference
+IndianPines,AE1,8,RNNs,paoletti vs mou,0.11102470956853304,No significant difference based on T-test,,,,
+IndianPines,AE1,8,RNNs,,,,0.19607222072016572,0.660889019750222,Fail to reject null hypothesis: Deeper architectures do not significantly improve performance.,No significant difference
+IndianPines,AE1,15,RNNs,paoletti vs mou,0.14538065167873185,No significant difference based on T-test,,,,
+IndianPines,AE1,15,RNNs,,,,0.12978081436891406,0.7210264292844173,Fail to reject null hypothesis: Deeper architectures do not significantly improve performance.,No significant difference
+IndianPines,AE1,30,RNNs,paoletti vs mou,0.02524837310578295,Deeper architecture (mou) improves performance,,,,
+IndianPines,AE1,30,RNNs,,,,0.1639979155322523,0.6881966450362491,Fail to reject null hypothesis: Deeper architectures do not significantly improve performance.,No significant difference
+IndianPines,AE2,8,RNNs,paoletti vs mou,0.0008420483071937808,Shallow architecture (paoletti) improves performance,,,,
+IndianPines,AE2,8,RNNs,,,,1.4121765613477766,0.24344034248453042,Fail to reject null hypothesis: Deeper architectures do not significantly improve performance.,No significant difference
+IndianPines,AE2,15,RNNs,paoletti vs mou,0.7165695960788638,No significant difference based on T-test,,,,
+IndianPines,AE2,15,RNNs,,,,0.008056977778092025,0.9290368736108642,Fail to reject null hypothesis: Deeper architectures do not significantly improve performance.,No significant difference
+IndianPines,AE2,30,RNNs,paoletti vs mou,0.23894124910882059,No significant difference based on T-test,,,,
+IndianPines,AE2,30,RNNs,,,,0.22374428517868974,0.6394123694131164,Fail to reject null hypothesis: Deeper architectures do not significantly improve performance.,No significant difference
+IndianPines,FastICA,8,RNNs,paoletti vs mou,0.0005087909299636217,Shallow architecture (paoletti) improves performance,,,,
+IndianPines,FastICA,8,RNNs,,,,0.9252323484148683,0.34331746749858216,Fail to reject null hypothesis: Deeper architectures do not significantly improve performance.,No significant difference
+IndianPines,FastICA,15,RNNs,paoletti vs mou,0.0029231138855936602,Shallow architecture (paoletti) improves performance,,,,
+IndianPines,FastICA,15,RNNs,,,,0.3266821912705232,0.5716124624388301,Fail to reject null hypothesis: Deeper architectures do not significantly improve performance.,No significant difference
+IndianPines,FastICA,30,RNNs,paoletti vs mou,0.0004586008671092653,Shallow architecture (paoletti) improves performance,,,,
+IndianPines,FastICA,30,RNNs,,,,0.2818839023708011,0.5991350322628013,Fail to reject null hypothesis: Deeper architectures do not significantly improve performance.,No significant difference
+IndianPines,FastICA-Split,8,RNNs,paoletti vs mou,0.111881086845569,No significant difference based on T-test,,,,
+IndianPines,FastICA-Split,8,RNNs,,,,0.1751638503837697,0.6783584336360677,Fail to reject null hypothesis: Deeper architectures do not significantly improve performance.,No significant difference
+IndianPines,FastICA-Split,15,RNNs,paoletti vs mou,0.8054175672879988,No significant difference based on T-test,,,,
+IndianPines,FastICA-Split,15,RNNs,,,,0.0031555455034382334,0.9555522864307804,Fail to reject null hypothesis: Deeper architectures do not significantly improve performance.,No significant difference
+IndianPines,FastICA-Split,30,RNNs,paoletti vs mou,0.013734493508106651,Deeper architecture (mou) improves performance,,,,
+IndianPines,FastICA-Split,30,RNNs,,,,0.1716693474705579,0.6813967649103267,Fail to reject null hypothesis: Deeper architectures do not significantly improve performance.,No significant difference
+IndianPines,PCA,8,RNNs,paoletti vs mou,0.1181906608153621,No significant difference based on T-test,,,,
+IndianPines,PCA,8,RNNs,,,,0.09504510372063767,0.759856746719537,Fail to reject null hypothesis: Deeper architectures do not significantly improve performance.,No significant difference
+IndianPines,PCA,15,RNNs,paoletti vs mou,0.5308184413868905,No significant difference based on T-test,,,,
+IndianPines,PCA,15,RNNs,,,,0.004559074586029785,0.9465871381464136,Fail to reject null hypothesis: Deeper architectures do not significantly improve performance.,No significant difference
+IndianPines,PCA,30,RNNs,paoletti vs mou,0.002207628696320821,Deeper architecture (mou) improves performance,,,,
+IndianPines,PCA,30,RNNs,,,,1.3184207164973565,0.25938708573001723,Fail to reject null hypothesis: Deeper architectures do not significantly improve performance.,No significant difference
+IndianPines,PCA-Split,8,RNNs,paoletti vs mou,0.060188338127167305,No significant difference based on T-test,,,,
+IndianPines,PCA-Split,8,RNNs,,,,0.6446450754557461,0.4279571666279808,Fail to reject null hypothesis: Deeper architectures do not significantly improve performance.,No significant difference
+IndianPines,PCA-Split,15,RNNs,paoletti vs mou,0.028616778816099715,Deeper architecture (mou) improves performance,,,,
+IndianPines,PCA-Split,15,RNNs,,,,0.08654738019992674,0.7705131244430261,Fail to reject null hypothesis: Deeper architectures do not significantly improve performance.,No significant difference
+IndianPines,PCA-Split,30,RNNs,paoletti vs mou,0.7680220565803882,No significant difference based on T-test,,,,
+IndianPines,PCA-Split,30,RNNs,,,,0.004380430480126035,0.94764246147294,Fail to reject null hypothesis: Deeper architectures do not significantly improve performance.,No significant difference
+IndianPines,UMAP,8,RNNs,paoletti vs mou,7.360955747401359e-05,Shallow architecture (paoletti) improves performance,,,,
+IndianPines,UMAP,8,RNNs,,,,2.6991797513003104,0.11019177013104993,Fail to reject null hypothesis: Deeper architectures do not significantly improve performance.,No significant difference
+IndianPines,UMAP,15,RNNs,paoletti vs mou,0.604607773631797,No significant difference based on T-test,,,,
+IndianPines,UMAP,15,RNNs,,,,0.005561583036913179,0.9410163098026679,Fail to reject null hypothesis: Deeper architectures do not significantly improve performance.,No significant difference
+IndianPines,UMAP,30,RNNs,paoletti vs mou,0.07331733934192072,No significant difference based on T-test,,,,
+IndianPines,UMAP,30,RNNs,,,,0.12739802415634716,0.72348831708573,Fail to reject null hypothesis: Deeper architectures do not significantly improve performance.,No significant difference
+IndianPines,UMAP-Split,8,RNNs,paoletti vs mou,0.018582807779575872,Shallow architecture (paoletti) improves performance,,,,
+IndianPines,UMAP-Split,8,RNNs,,,,0.32092945701649056,0.5750017517340698,Fail to reject null hypothesis: Deeper architectures do not significantly improve performance.,No significant difference
+IndianPines,UMAP-Split,15,RNNs,paoletti vs mou,0.003172957410017769,Shallow architecture (paoletti) improves performance,,,,
+IndianPines,UMAP-Split,15,RNNs,,,,0.4716885165215471,0.49715862237170627,Fail to reject null hypothesis: Deeper architectures do not significantly improve performance.,No significant difference
+IndianPines,UMAP-Split,30,RNNs,paoletti vs mou,0.013686836405351524,Shallow architecture (paoletti) improves performance,,,,
+IndianPines,UMAP-Split,30,RNNs,,,,0.19191871092299265,0.6642675936345503,Fail to reject null hypothesis: Deeper architectures do not significantly improve performance.,No significant difference
+Salinas,AE1,8,RNNs,paoletti vs mou,0.0002847851831644071,Deeper architecture (mou) improves performance,,,,
+Salinas,AE1,8,RNNs,,,,0.11112005569858206,0.7410469679029753,Fail to reject null hypothesis: Deeper architectures do not significantly improve performance.,No significant difference
+Salinas,AE1,15,RNNs,paoletti vs mou,0.04050052889536098,Deeper architecture (mou) improves performance,,,,
+Salinas,AE1,15,RNNs,,,,0.020937198060598763,0.8858576846762104,Fail to reject null hypothesis: Deeper architectures do not significantly improve performance.,No significant difference
+Salinas,AE1,30,RNNs,paoletti vs mou,0.008629063421534348,Deeper architecture (mou) improves performance,,,,
+Salinas,AE1,30,RNNs,,,,0.005019966123326966,0.9439567238205299,Fail to reject null hypothesis: Deeper architectures do not significantly improve performance.,No significant difference
+Salinas,AE2,8,RNNs,paoletti vs mou,0.7607385478123654,No significant difference based on T-test,,,,
+Salinas,AE2,8,RNNs,,,,0.0008483287805776148,0.976944928720112,Fail to reject null hypothesis: Deeper architectures do not significantly improve performance.,No significant difference
+Salinas,AE2,15,RNNs,paoletti vs mou,0.4359059294744069,No significant difference based on T-test,,,,
+Salinas,AE2,15,RNNs,,,,0.0005962586728707334,0.9806705037153121,Fail to reject null hypothesis: Deeper architectures do not significantly improve performance.,No significant difference
+Salinas,AE2,30,RNNs,paoletti vs mou,0.11833858162264066,No significant difference based on T-test,,,,
+Salinas,AE2,30,RNNs,,,,0.002496408225711911,0.9604615915620345,Fail to reject null hypothesis: Deeper architectures do not significantly improve performance.,No significant difference
+Salinas,FastICA,8,RNNs,paoletti vs mou,0.11985220542599648,No significant difference based on T-test,,,,
+Salinas,FastICA,8,RNNs,,,,0.015741120465023566,0.9009414500140709,Fail to reject null hypothesis: Deeper architectures do not significantly improve performance.,No significant difference
+Salinas,FastICA,15,RNNs,paoletti vs mou,0.0161506350514951,Shallow architecture (paoletti) improves performance,,,,
+Salinas,FastICA,15,RNNs,,,,0.14997359632871457,0.701124367640537,Fail to reject null hypothesis: Deeper architectures do not significantly improve performance.,No significant difference
+Salinas,FastICA,30,RNNs,paoletti vs mou,0.3551236073115366,No significant difference based on T-test,,,,
+Salinas,FastICA,30,RNNs,,,,0.003101829709327349,0.9559318128545287,Fail to reject null hypothesis: Deeper architectures do not significantly improve performance.,No significant difference
+Salinas,FastICA-Split,8,RNNs,paoletti vs mou,0.0028852280065052296,Shallow architecture (paoletti) improves performance,,,,
+Salinas,FastICA-Split,8,RNNs,,,,0.0733178961521521,0.788304736893732,Fail to reject null hypothesis: Deeper architectures do not significantly improve performance.,No significant difference
+Salinas,FastICA-Split,15,RNNs,paoletti vs mou,0.014744576359509669,Shallow architecture (paoletti) improves performance,,,,
+Salinas,FastICA-Split,15,RNNs,,,,0.01589395538416995,0.9004643263828646,Fail to reject null hypothesis: Deeper architectures do not significantly improve performance.,No significant difference
+Salinas,FastICA-Split,30,RNNs,paoletti vs mou,0.5878845460650125,No significant difference based on T-test,,,,
+Salinas,FastICA-Split,30,RNNs,,,,0.002343025110673189,0.961694485728347,Fail to reject null hypothesis: Deeper architectures do not significantly improve performance.,No significant difference
+Salinas,PCA,8,RNNs,paoletti vs mou,0.4352203522419741,No significant difference based on T-test,,,,
+Salinas,PCA,8,RNNs,,,,0.000771121897301319,0.978018787289761,Fail to reject null hypothesis: Deeper architectures do not significantly improve performance.,No significant difference
+Salinas,PCA,15,RNNs,paoletti vs mou,0.06344935090579519,No significant difference based on T-test,,,,
+Salinas,PCA,15,RNNs,,,,0.07219147062361467,0.7898970168652855,Fail to reject null hypothesis: Deeper architectures do not significantly improve performance.,No significant difference
+Salinas,PCA,30,RNNs,paoletti vs mou,0.09278160129954742,No significant difference based on T-test,,,,
+Salinas,PCA,30,RNNs,,,,0.022439587553482035,0.8818637810911979,Fail to reject null hypothesis: Deeper architectures do not significantly improve performance.,No significant difference
+Salinas,PCA-Split,8,RNNs,paoletti vs mou,0.016711852332359185,Shallow architecture (paoletti) improves performance,,,,
+Salinas,PCA-Split,8,RNNs,,,,0.008889732098346328,0.9254703783933056,Fail to reject null hypothesis: Deeper architectures do not significantly improve performance.,No significant difference
+Salinas,PCA-Split,15,RNNs,paoletti vs mou,0.023244345515914012,Shallow architecture (paoletti) improves performance,,,,
+Salinas,PCA-Split,15,RNNs,,,,0.008224388916314251,0.9283054741339257,Fail to reject null hypothesis: Deeper architectures do not significantly improve performance.,No significant difference
+Salinas,PCA-Split,30,RNNs,paoletti vs mou,0.3467719764354039,No significant difference based on T-test,,,,
+Salinas,PCA-Split,30,RNNs,,,,0.001214500193012717,0.9724160895313921,Fail to reject null hypothesis: Deeper architectures do not significantly improve performance.,No significant difference
+Salinas,UMAP,8,RNNs,paoletti vs mou,0.3935612952332762,No significant difference based on T-test,,,,
+Salinas,UMAP,8,RNNs,,,,0.0002770641164277579,0.9868229817389275,Fail to reject null hypothesis: Deeper architectures do not significantly improve performance.,No significant difference
+Salinas,UMAP,15,RNNs,paoletti vs mou,0.1830695087357092,No significant difference based on T-test,,,,
+Salinas,UMAP,15,RNNs,,,,0.0008250050018148009,0.9772639822193946,Fail to reject null hypothesis: Deeper architectures do not significantly improve performance.,No significant difference
+Salinas,UMAP,30,RNNs,paoletti vs mou,0.4731139517253852,No significant difference based on T-test,,,,
+Salinas,UMAP,30,RNNs,,,,2.0475861714174994e-05,0.9964176562831425,Fail to reject null hypothesis: Deeper architectures do not significantly improve performance.,No significant difference
+Salinas,UMAP-Split,8,RNNs,paoletti vs mou,0.011049671061669599,Shallow architecture (paoletti) improves performance,,,,
+Salinas,UMAP-Split,8,RNNs,,,,0.004808494214734249,0.9451478766237735,Fail to reject null hypothesis: Deeper architectures do not significantly improve performance.,No significant difference
+Salinas,UMAP-Split,15,RNNs,paoletti vs mou,0.25303631686851163,No significant difference based on T-test,,,,
+Salinas,UMAP-Split,15,RNNs,,,,0.0036547667770107256,0.9521695142145093,Fail to reject null hypothesis: Deeper architectures do not significantly improve performance.,No significant difference
+Salinas,UMAP-Split,30,RNNs,paoletti vs mou,0.4051161048061276,No significant difference based on T-test,,,,
+Salinas,UMAP-Split,30,RNNs,,,,0.00012578990902349947,0.9911210583992202,Fail to reject null hypothesis: Deeper architectures do not significantly improve performance.,No significant difference
