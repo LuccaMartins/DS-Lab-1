@@ -1,0 +1,7 @@
+Dataset,DR Method Comparison,T-Test P-value,Trend (T-Test)
+IndianPines,PCA vs PCA-Split,0.008043947406845338,Split method (PCA-Split) improves performance
+Salinas,PCA vs PCA-Split,0.00997343302447678,Split method (PCA-Split) improves performance
+IndianPines,FastICA vs FastICA-Split,0.00019617101637026653,Split method (FastICA-Split) improves performance
+Salinas,FastICA vs FastICA-Split,0.00028571146824370067,Split method (FastICA-Split) improves performance
+IndianPines,UMAP vs UMAP-Split,2.5434003170420252e-08,Split method (UMAP-Split) improves performance
+Salinas,UMAP vs UMAP-Split,0.026745819422618295,Split method (UMAP-Split) improves performance

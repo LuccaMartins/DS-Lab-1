@@ -1,0 +1,73 @@
+Dataset,Model,N Components,DR Method Group,T-Test Comparison,T-Test P-value,Trend (T-Test)
+IndianPines,hamida,8,PCA,PCA vs PCA-Split,0.002151141725536229,Original method (PCA) improves performance
+IndianPines,li,8,PCA,PCA vs PCA-Split,0.014390504060162207,Original method (PCA) improves performance
+IndianPines,mou,8,PCA,PCA vs PCA-Split,0.17087755832506887,No significant difference based on T-test
+IndianPines,paoletti,8,PCA,PCA vs PCA-Split,0.8810500357088408,No significant difference based on T-test
+IndianPines,hamida,15,PCA,PCA vs PCA-Split,0.011210843830487639,Split method (PCA-Split) improves performance
+IndianPines,li,15,PCA,PCA vs PCA-Split,0.019582647572361094,Split method (PCA-Split) improves performance
+IndianPines,mou,15,PCA,PCA vs PCA-Split,0.7578218139564012,No significant difference based on T-test
+IndianPines,paoletti,15,PCA,PCA vs PCA-Split,0.051272236284718276,No significant difference based on T-test
+IndianPines,hamida,30,PCA,PCA vs PCA-Split,0.009830062076842491,Split method (PCA-Split) improves performance
+IndianPines,li,30,PCA,PCA vs PCA-Split,5.5818658620257785e-05,Split method (PCA-Split) improves performance
+IndianPines,mou,30,PCA,PCA vs PCA-Split,0.37954799997595645,No significant difference based on T-test
+IndianPines,paoletti,30,PCA,PCA vs PCA-Split,0.0008838931971553161,Split method (PCA-Split) improves performance
+Salinas,hamida,8,PCA,PCA vs PCA-Split,0.00321306906945508,Original method (PCA) improves performance
+Salinas,li,8,PCA,PCA vs PCA-Split,0.028355038570021404,Original method (PCA) improves performance
+Salinas,mou,8,PCA,PCA vs PCA-Split,0.0030598800358142375,Original method (PCA) improves performance
+Salinas,paoletti,8,PCA,PCA vs PCA-Split,0.7354041258368629,No significant difference based on T-test
+Salinas,hamida,15,PCA,PCA vs PCA-Split,0.01152441843861575,Original method (PCA) improves performance
+Salinas,li,15,PCA,PCA vs PCA-Split,0.5251426485213311,No significant difference based on T-test
+Salinas,mou,15,PCA,PCA vs PCA-Split,0.0007612667623233504,Split method (PCA-Split) improves performance
+Salinas,paoletti,15,PCA,PCA vs PCA-Split,0.001007746591705311,Split method (PCA-Split) improves performance
+Salinas,hamida,30,PCA,PCA vs PCA-Split,0.0111230233215608,Original method (PCA) improves performance
+Salinas,li,30,PCA,PCA vs PCA-Split,0.13535267463289957,No significant difference based on T-test
+Salinas,mou,30,PCA,PCA vs PCA-Split,0.7204757950363863,No significant difference based on T-test
+Salinas,paoletti,30,PCA,PCA vs PCA-Split,0.04393172751633506,Split method (PCA-Split) improves performance
+IndianPines,hamida,8,FastICA,FastICA vs FastICA-Split,0.020379192649364983,Original method (FastICA) improves performance
+IndianPines,li,8,FastICA,FastICA vs FastICA-Split,0.008060964093198756,Original method (FastICA) improves performance
+IndianPines,mou,8,FastICA,FastICA vs FastICA-Split,0.6947648526207694,No significant difference based on T-test
+IndianPines,paoletti,8,FastICA,FastICA vs FastICA-Split,0.040687374912752046,Original method (FastICA) improves performance
+IndianPines,hamida,15,FastICA,FastICA vs FastICA-Split,0.005484823634937317,Original method (FastICA) improves performance
+IndianPines,li,15,FastICA,FastICA vs FastICA-Split,0.0635733751930428,No significant difference based on T-test
+IndianPines,mou,15,FastICA,FastICA vs FastICA-Split,0.9524962592588375,No significant difference based on T-test
+IndianPines,paoletti,15,FastICA,FastICA vs FastICA-Split,0.020639624945773063,Original method (FastICA) improves performance
+IndianPines,hamida,30,FastICA,FastICA vs FastICA-Split,0.3060745242444115,No significant difference based on T-test
+IndianPines,li,30,FastICA,FastICA vs FastICA-Split,7.31692356285936e-11,Split method (FastICA-Split) improves performance
+IndianPines,mou,30,FastICA,FastICA vs FastICA-Split,0.003276937491042526,Split method (FastICA-Split) improves performance
+IndianPines,paoletti,30,FastICA,FastICA vs FastICA-Split,0.61343916442566,No significant difference based on T-test
+Salinas,hamida,8,FastICA,FastICA vs FastICA-Split,0.006406786626258729,Original method (FastICA) improves performance
+Salinas,li,8,FastICA,FastICA vs FastICA-Split,0.10922702087922079,No significant difference based on T-test
+Salinas,mou,8,FastICA,FastICA vs FastICA-Split,0.006674917495363925,Original method (FastICA) improves performance
+Salinas,paoletti,8,FastICA,FastICA vs FastICA-Split,0.011129809689055283,Original method (FastICA) improves performance
+Salinas,hamida,15,FastICA,FastICA vs FastICA-Split,0.0005135941607193104,Split method (FastICA-Split) improves performance
+Salinas,li,15,FastICA,FastICA vs FastICA-Split,9.349970415348668e-11,Split method (FastICA-Split) improves performance
+Salinas,mou,15,FastICA,FastICA vs FastICA-Split,0.06172883484480911,No significant difference based on T-test
+Salinas,paoletti,15,FastICA,FastICA vs FastICA-Split,0.0074019532682632295,Original method (FastICA) improves performance
+Salinas,hamida,30,FastICA,FastICA vs FastICA-Split,0.14434157208695658,No significant difference based on T-test
+Salinas,li,30,FastICA,FastICA vs FastICA-Split,0.04030833784999453,Split method (FastICA-Split) improves performance
+Salinas,mou,30,FastICA,FastICA vs FastICA-Split,0.004589886311883986,Original method (FastICA) improves performance
+Salinas,paoletti,30,FastICA,FastICA vs FastICA-Split,0.012684284230056854,Original method (FastICA) improves performance
+IndianPines,hamida,8,UMAP,UMAP vs UMAP-Split,0.022363138431853054,Split method (UMAP-Split) improves performance
+IndianPines,li,8,UMAP,UMAP vs UMAP-Split,0.7567227569997671,No significant difference based on T-test
+IndianPines,mou,8,UMAP,UMAP vs UMAP-Split,0.0008795538956591117,Split method (UMAP-Split) improves performance
+IndianPines,paoletti,8,UMAP,UMAP vs UMAP-Split,0.0027434380976038408,Split method (UMAP-Split) improves performance
+IndianPines,hamida,15,UMAP,UMAP vs UMAP-Split,0.038527845942359897,Split method (UMAP-Split) improves performance
+IndianPines,li,15,UMAP,UMAP vs UMAP-Split,0.09998708859980285,No significant difference based on T-test
+IndianPines,mou,15,UMAP,UMAP vs UMAP-Split,0.5806177676866222,No significant difference based on T-test
+IndianPines,paoletti,15,UMAP,UMAP vs UMAP-Split,0.004875102099493701,Split method (UMAP-Split) improves performance
+IndianPines,hamida,30,UMAP,UMAP vs UMAP-Split,0.04787529932677037,Split method (UMAP-Split) improves performance
+IndianPines,li,30,UMAP,UMAP vs UMAP-Split,0.07520081270091517,No significant difference based on T-test
+IndianPines,mou,30,UMAP,UMAP vs UMAP-Split,0.3088987054117819,No significant difference based on T-test
+IndianPines,paoletti,30,UMAP,UMAP vs UMAP-Split,0.007610152704720765,Split method (UMAP-Split) improves performance
+Salinas,hamida,8,UMAP,UMAP vs UMAP-Split,0.5182773970422662,No significant difference based on T-test
+Salinas,li,8,UMAP,UMAP vs UMAP-Split,0.44554588347226753,No significant difference based on T-test
+Salinas,mou,8,UMAP,UMAP vs UMAP-Split,0.011893206545512527,Original method (UMAP) improves performance
+Salinas,paoletti,8,UMAP,UMAP vs UMAP-Split,0.7224189969508878,No significant difference based on T-test
+Salinas,hamida,15,UMAP,UMAP vs UMAP-Split,0.21992912697042932,No significant difference based on T-test
+Salinas,li,15,UMAP,UMAP vs UMAP-Split,0.16990609634265202,No significant difference based on T-test
+Salinas,mou,15,UMAP,UMAP vs UMAP-Split,0.8022155912274047,No significant difference based on T-test
+Salinas,paoletti,15,UMAP,UMAP vs UMAP-Split,0.5784695536535887,No significant difference based on T-test
+Salinas,hamida,30,UMAP,UMAP vs UMAP-Split,0.16973204725393445,No significant difference based on T-test
+Salinas,li,30,UMAP,UMAP vs UMAP-Split,0.1702470786900332,No significant difference based on T-test
+Salinas,mou,30,UMAP,UMAP vs UMAP-Split,0.37949184569964234,No significant difference based on T-test
+Salinas,paoletti,30,UMAP,UMAP vs UMAP-Split,0.3712927663324913,No significant difference based on T-test

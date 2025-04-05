@@ -1,0 +1,5 @@
+Dataset,Architecture Group,T-Test Comparison,T-Test P-value,Trend (T-Test)
+IndianPines,CNNs,Shallow vs Deep,1.4481981453477062e-05,Deeper architecture improves performance
+Salinas,CNNs,Shallow vs Deep,0.003357153305306188,Deeper architecture improves performance
+IndianPines,RNNs,Shallow vs Deep,2.8608551266478752e-05,Deeper architecture improves performance
+Salinas,RNNs,Shallow vs Deep,0.01849885283567633,Deeper architecture improves performance
